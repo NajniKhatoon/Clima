@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Action Impact Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === AIS Page-Specific Embedded CSS === */
+
+    /* 1. Page hero */
+    .ais-hero {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 5% 2.5rem;
+    }
+    .ais-hero h1 { color: var(--white); margin-bottom: 0.6rem; }
+    .ais-hero p  { color: var(--neutral-200); max-width: 580px; margin: 0 auto; }
+
+    /* 2. Action cards grid */
+    .ais-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      padding: 2.5rem 5%;
+    }
+
+    /* 3. Individual action card */
+    .action-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.4rem;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .action-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+    /* 4. Selected card style */
+    .action-card.selected {
+      border-color: var(--primary);
+      background: #f0faf4;
+      box-shadow: 0 0 0 4px rgba(26,107,60,0.18);
+    }
+    .action-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 0.7rem; right: 0.8rem;
+      background: var(--primary);
+      color: var(--white);
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700;
+    }
+
+    /* 5. Card image */
+    .action-card img {
+      width: 100%; height: 150px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    /* 6. Impact badge */
+    .impact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 2rem;
+      width: fit-content;
+    }
+
+    /* 7. Feedback panel */
+    .feedback-panel {
+      margin: 0 5% 3rem;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: background 0.5s ease;
+    }
+    .feedback-panel h2 { margin-bottom: 1rem; color: var(--primary-dark); }
+
+    .score-display {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--primary);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .impact-level {
+      display: inline-block;
+      padding: 0.35rem 1.1rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+    }
+    .level-low    { background: #fdecea; color: #c0392b; }
+    .level-medium { background: #fff8e1; color: #c07d10; }
+    .level-high   { background: #e8f5e9; color: #1a6b3c; }
+
+    .progress-bar-wrap {
+      background: var(--neutral-200);
+      border-radius: 2rem;
+      height: 12px;
+      overflow: hidden;
+      margin: 0.8rem 0;
+      max-width: 400px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 2rem;
+      background: var(--primary);
+      transition: width 0.5s ease;
+    }
+
+    .btn-reset {
+      margin-top: 1rem;
+      background: var(--neutral-200);
+      color: var(--neutral-900);
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-reset:hover { background: var(--neutral-300); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+        <div class="logo-icon" aria-hidden="true">🌍</div>
+        <div>
+          <span class="logo-text">CLIMA</span>
+          <span class="logo-sub">SDG 13 · Climate Action</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html" class="active" aria-current="page">Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ais-hero" aria-label="Page introduction">
+      <h1>SDG Action Impact Simulator</h1>
+      <p>Select the climate actions you already take — or could commit to. See your combined impact score and get feedback on your climate footprint.</p>
+    </section>
+
+    <!-- Action cards injected here -->
+    <div class="ais-grid" id="aisGrid" role="list" aria-label="Climate action choices"></div>
+
+    <!-- Feedback panel -->
+    <section class="feedback-panel" id="feedbackPanel" aria-live="polite" aria-labelledby="feedbackHeading">
+      <h2 id="feedbackHeading">Your Climate Impact</h2>
+      <div class="score-display" id="scoreDisplay">0 pts</div>
+      <div class="impact-level level-low" id="impactLevel">Low Impact</div>
+      <div class="progress-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBarWrap">
+        <div class="progress-bar-fill" id="progressBarFill" style="width:0%"></div>
+      </div>
+      <p id="feedbackMsg">Select actions above to see your impact score.</p>
+      <p style="font-size:0.82rem;color:var(--neutral-700);">
+        <strong>Thresholds:</strong> Low = 0–7 pts &nbsp;|&nbsp; Medium = 8–14 pts &nbsp;|&nbsp; High = 15+ pts
+      </p>
+      <button class="btn-reset" id="resetBtn" aria-label="Reset all selections">↺ Reset</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>CLIMA</h3>
+        <p style="font-size:0.85rem;">Student project – University of Westminster 2026.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Navigate</h3>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h3>This Page</h3>
+        <a href="pageEditor_ST2.html">Page Editor – Student 2</a>
+        <a href="validation_ST2.html">Validation – Student 2</a>
+        <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+      </div>
+      <div class="footer-section">
+        <h3>Student 2</h3>
+        <p style="font-size:0.85rem;">Name: Ajit Pandey<br>Student ID: w2148848<br>Role: Splash &amp; AIS</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CLIMA – SDG 13 | <a href="https://www.westminster.ac.uk/accessibility" target="_blank" rel="noopener">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Action data ----
+    // Impact point thresholds: Low=0-7, Medium=8-14, High=15+
+    const actions = [
+      { id:1, title:'Switch to Renewable Energy', category:'Energy', img:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&q=60', alt:'Solar panels in a sunny field', desc:'Switch your home energy tariff to a 100% renewable provider.', points:4 },
+      { id:2, title:'Reduce Meat Consumption',    category:'Food',   img:'https://cdn.vectorstock.com/i/500p/65/26/reduce-meat-consumption-vector-40926526.jpg', alt:'Plant-based meal with vegetables', desc:'Adopt a plant-based diet at least 3 days per week.', points:3 },
+      { id:3, title:'Use Public Transport',        category:'Travel', img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&q=60', alt:'Electric bus at a stop in a city', desc:'Replace one car journey per week with public transport or cycling.', points:2 },
+      { id:4, title:'Cut Flight Emissions',        category:'Travel', img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=60', alt:'Aeroplane in a blue sky', desc:'Avoid one short-haul flight per year and take the train instead.', points:5 },
+      { id:5, title:'Reduce Home Heating',         category:'Energy', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=60', alt:'Thermostat on a wall', desc:'Turn your thermostat down by 1°C and wear warmer clothes at home.', points:2 },
+      { id:6, title:'Buy Second-Hand Clothing',    category:'Shopping', img:'https://media.istockphoto.com/id/485039700/photo/woman-browsing-clothes-at-market.jpg?s=612x612&w=0&k=20&c=AhgLPpQp3lcSWgvoWxNYlcWH1ouhsjhof2myfDgKKC8=', alt:'Clothes rail in a charity shop', desc:'Choose second-hand or swap clothing instead of buying new.', points:2 },
+      { id:7, title:'Compost Food Waste',           category:'Food',   img:'https://images.unsplash.com/photo-1567306301408-9b74779a11af?w=500&q=60', alt:'Compost bin with food scraps', desc:'Compost kitchen scraps instead of sending them to landfill.', points:2 },
+      { id:8, title:'Join a Climate Campaign',      category:'Advocacy', img:'https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=500&q=60', alt:'People marching for climate action', desc:'Sign up to a local or national climate campaign or petition.', points:3 },
+    ];
+
+    const MAX_SCORE = actions.reduce((sum, a) => sum + a.points, 0);
+
+    // ---- Render cards ----
+    const grid = document.getElementById('aisGrid');
+    const selected = new Set();
+
+    actions.forEach(action => {
+      const card = document.createElement('div');
+      card.className = 'action-card';
+      card.setAttribute('role', 'listitem');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-pressed', 'false');
+      card.setAttribute('aria-label', `${action.title} – ${action.points} impact points`);
+      card.dataset.id = action.id;
+
+      card.innerHTML = `
+        <img src="${action.img}" alt="${action.alt}" loading="lazy" />
+        <span style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--primary-light);">${action.category}</span>
+        <h4 style="margin:0;font-size:1rem;">${action.title}</h4>
+        <p style="font-size:0.85rem;color:var(--neutral-700);margin:0;">${action.desc}</p>
+        <div class="impact-badge">⚡ ${action.points} pts</div>
+      `;
+
+      const toggle = () => {
+        if (selected.has(action.id)) {
+          selected.delete(action.id);
+          card.classList.remove('selected');
+          card.setAttribute('aria-pressed', 'false');
+        } else {
+          selected.add(action.id);
+          card.classList.add('selected');
+          card.setAttribute('aria-pressed', 'true');
+        }
+        updateFeedback();
+      };
+
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+
+      grid.appendChild(card);
+    });
+
+    // ---- Feedback update ----
+    const scoreEl    = document.getElementById('scoreDisplay');
+    const levelEl    = document.getElementById('impactLevel');
+    const msgEl      = document.getElementById('feedbackMsg');
+    const fillEl     = document.getElementById('progressBarFill');
+    const wrapEl     = document.getElementById('progressBarWrap');
+    const panel      = document.getElementById('feedbackPanel');
+
+    // Background image URLs for three levels
+    const bgImages = {
+      low:    'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1400&q=50',
+      medium: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1400&q=50',
+      high:   'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1400&q=50'
+    };
+
+    function updateFeedback() {
+      const total = [...selected].reduce((sum, id) => {
+        const a = actions.find(x => x.id === id);
+        return sum + (a ? a.points : 0);
+      }, 0);
+
+      scoreEl.textContent = `${total} pts`;
+
+      const pct = Math.min(100, Math.round((total / MAX_SCORE) * 100));
+      fillEl.style.width = pct + '%';
+      wrapEl.setAttribute('aria-valuenow', pct);
+
+      let level, levelClass, msg, bgKey;
+      if (total < 8) {
+        level='Low Impact'; levelClass='level-low'; bgKey='low';
+        msg = selected.size === 0
+          ? 'Select actions above to see your impact score.'
+          : 'Good start! Every action counts. Try adding a few more to increase your impact.';
+      } else if (total < 15) {
+        level='Medium Impact'; levelClass='level-medium'; bgKey='medium';
+        msg = `Great effort — you're making a real difference! You've selected ${selected.size} actions. Pushing for high impact can help bend the emissions curve.`;
+      } else {
+        level='High Impact'; levelClass='level-high'; bgKey='high';
+        msg = `Excellent commitment! With ${selected.size} climate actions, you're leading by example. Share your commitments with friends and inspire others.`;
+      }
+
+      levelEl.textContent = level;
+      levelEl.className   = `impact-level ${levelClass}`;
+      msgEl.textContent   = msg;
+
+      // JS-controlled background change
+      document.body.style.backgroundImage = total > 0
+        ? `url('${bgImages[bgKey]}')`
+        : 'none';
+      document.body.style.backgroundSize       = 'cover';
+      document.body.style.backgroundAttachment = 'fixed';
+      document.body.style.backgroundPosition   = 'center';
+    }
+
+    // Reset
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      selected.clear();
+      document.querySelectorAll('.action-card').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      document.body.style.backgroundImage = 'none';
+      updateFeedback();
+    });
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

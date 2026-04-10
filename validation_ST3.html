@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Validation – Student 3</title>
+  <style>
+    :root{--primary:#1a6b3c;--primary-dark:#0d4025;--accent:#f4a020;--white:#fff;--neutral-100:#f5f5f0;--neutral-200:#e8e8e0;--neutral-700:#3a3a30;--radius:8px;--shadow-sm:0 2px 8px rgba(0,0,0,.10);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Georgia',serif;background:var(--neutral-100);color:var(--neutral-700);line-height:1.7;font-size:16px;}
+    a{color:var(--primary);}a:hover{color:var(--accent);}
+    header{background:var(--primary-dark);color:var(--white);padding:1.5rem 5%;}
+    header h1{font-size:1.6rem;}header p{opacity:0.75;font-size:0.88rem;margin-top:0.3rem;}
+    .container{max-width:860px;margin:0 auto;padding:3rem 5%;}
+    .val-section{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:2rem;margin-bottom:2.5rem;}
+    .val-section h2{color:var(--primary-dark);margin-bottom:0.6rem;font-size:1.3rem;}
+    .val-section p{font-size:0.92rem;margin-bottom:0.8rem;}
+    .status-ok{display:inline-block;background:#e8f5e9;color:#1a6b3c;border:1px solid #a5d6a7;padding:0.3rem 0.8rem;border-radius:2rem;font-size:0.82rem;font-weight:700;margin-bottom:1rem;}
+    .screenshot-placeholder{background:var(--neutral-200);border:2px dashed var(--neutral-700);border-radius:var(--radius);padding:3rem 2rem;text-align:center;font-size:0.88rem;color:var(--neutral-700);margin:1rem 0;}
+    .screenshot-placeholder strong{display:block;margin-bottom:0.4rem;font-size:1rem;}
+    footer{background:var(--primary-dark);color:#e8e8e0;padding:1.5rem 5%;font-size:0.85rem;margin-top:2rem;}
+    footer a{color:var(--accent);}
+    .go-top{position:fixed;bottom:2rem;right:2rem;background:var(--primary);color:var(--white);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+    .go-top:hover{background:var(--accent);color:var(--primary-dark);}
+    .contents-nav{background:var(--white);border-radius:var(--radius);padding:1.5rem 2rem;margin-bottom:2.5rem;box-shadow:var(--shadow-sm);}
+    .contents-nav h2{color:var(--primary);margin-bottom:0.8rem;font-size:1rem;}
+    .contents-nav ol{padding-left:1.3rem;}
+    .contents-nav li{margin-bottom:0.3rem;font-size:0.9rem;}
+  </style>
+</head>
+<body>
+<header id="top">
+  <h1>Validation Page – Student 3</h1>
+  <p>Evidence of HTML validation for all pages implemented by Student 3 | CLIMA – SDG 13 | University of Westminster</p>
+</header>
+
+<div class="container">
+
+  <div class="contents-nav" role="navigation" aria-label="Validation page contents">
+    <h2>Pages Validated</h2>
+    <ol>
+      <li><a href="#val1">Feedback</a></li>
+      <li><a href="#val2">Team</a></li>
+      <li><a href="#val3">Content Page</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+    </ol>
+  </div>
+
+  <p style="margin-bottom:2rem;font-size:0.92rem;">All pages were validated using the <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a> (validator.w3.org). Pages validated: <strong>Feedback (feedback.html), Team (team.html), Content Page (content_ST3.html)</strong>.</p>
+
+  <!-- VALIDATION ENTRY 1 -->
+  <section class="val-section" id="val1" aria-labelledby="v1-heading">
+    <h2 id="v1-heading">Feedback – Feedback.html</h2>
+    <p><strong>File:</strong> feedback.html &nbsp;|&nbsp; <strong>URL:</strong> <a href="#" target="_blank" rel="noopener">https://w2152992.users.ecs.westminster.ac.uk/clima/feedback.html</a></p>
+    <span class="status-ok">✓ No Errors Found</span>
+    <p>Link to validation evidence in Page Editor: <a href="validation_page">See technical description ↗</a></p>
+   <div>
+      <img src="images/validation_page1_ST3.png" alt="W3C validation result for Content page showing no errors" style="width:100%;border-radius:8px;border:1px solid #e8e8e0;" />
+    </div>
+  </section>
+
+  <!-- VALIDATION ENTRY 2 -->
+  <section class="val-section" id="val2" aria-labelledby="v2-heading">
+    <h2 id="v2-heading">Team – Team.html</h2>
+    <p><strong>File:</strong> team.html &nbsp;|&nbsp; <strong>URL:</strong> <a href="#" target="_blank" rel="noopener">https://w2152992.users.ecs.westminster.ac.uk/clima/team.html</a></p>
+    <span class="status-ok">✓ No Errors Found</span>
+    <p>Link to validation evidence in Page Editor: <a href="pageEditor_ST3.html#technical">See technical description ↗</a></p>
+   <div>
+      <img src="images/validation_page2_ST3.png" alt="W3C validation result for Content page showing no errors" style="width:100%;border-radius:8px;border:1px solid #e8e8e0;" />
+    </div>
+  </section>
+
+  <!-- VALIDATION ENTRY 3 – Content Page -->
+  <section class="val-section" id="val3" aria-labelledby="v3-heading">
+    <h2 id="v3-heading">Content Page – Content_ST3.html</h2>
+    <p><strong>File:</strong> content_ST3.html &nbsp;|&nbsp; <strong>URL:</strong> <a href="content_ST3.html" target="_blank" rel="noopener">https://w2152992.users.ecs.westminster.ac.uk/clima/content_ST3.html</a></p>
+    <span class="status-ok">✓ No Errors Found</span>
+    <p>Link to validation evidence in Page Editor: <a href="pageEditor_ST3.html#technical">See technical description ↗</a></p>
+    <div>
+      <img src="images/validation_page2_ST3.png" alt="W3C validation result for Content page showing no errors" style="width:100%;border-radius:8px;border:1px solid #e8e8e0;" />
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section class="val-section" id="reflection" aria-labelledby="ref-heading">
+    <h2 id="ref-heading">Reflection on Validation Process</h2>
+    <p>
+      <p>
+        During the development of my CLIMA pages, I used the W3C Markup Validation Service to ensure all HTML files were error-free and followed proper standards. Initially, the validator highlighted several issues, particularly within my feedback form and content page.
+        One key issue was related to form inputs where required attributes and proper structure were missing or inconsistent. I resolved this by ensuring all form fields had correct labels, required attributes, and valid input types, improving both validation and accessibility.
+        Another issue involved incorrect HTML structure, including minor nesting errors and inconsistent use of elements. I carefully reviewed and corrected these to ensure all elements were properly structured and semantically correct.
+        I also encountered issues with attributes such as empty or invalid values (e.g. placeholder or image attributes), which were flagged by the validator. These were fixed by providing valid default values and ensuring all attributes followed HTML standards.
+        Through this process, I learned that validation is essential not only for removing errors but also for improving code quality, accessibility, and maintainability. It reinforced the importance of writing clean, semantic HTML that works consistently across browsers and devices.
+      </p>
+    </p>
+  </section>
+</div>
+
+<a href="#top" class="go-top" aria-label="Back to top">↑</a>
+
+<footer>
+  <p>Student 3 – Najni Khatoon | <a href="pageEditor_ST3.html">Page Editor</a> | <a href="home.html">Home</a> | &copy; 2026 CLIMA – University of Westminster</p>
+</footer>
+</body>
+</html>

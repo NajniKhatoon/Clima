@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Our Team</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === Team Page – Embedded CSS === */
+
+    /* 1. Page hero */
+    .team-hero {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      padding: 3.5rem 5% 2.5rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .team-hero h1 { color: var(--white); margin-bottom: 0.5rem; }
+    .team-hero p  { color: var(--neutral-200); }
+
+    .team-name h2 {
+      padding: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* 2. Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 2rem;
+      padding: 4rem 5%;
+    }
+
+    /* 3. Member block */
+    .member-block {
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* 4. SVG avatar container */
+    .member-thumb {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      aspect-ratio: 1;
+    }
+    .member-thumb svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    /* 5. Hover effects */
+    .member-block:hover .member-thumb,
+    .member-block:focus .member-thumb {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .member-block:hover .member-thumb svg,
+    .member-block:focus .member-thumb svg {
+      transform: scale(1.05);
+      filter: brightness(0.85);
+    }
+
+    /* 6. Name bar */
+    .member-name-bar {
+      text-align: center;
+      padding: 0.8rem 0 0.2rem;
+    }
+    .member-name-bar h3 { font-size: 1.1rem; color: var(--primary-dark); margin: 0; }
+    .member-name-bar span { font-size: 0.8rem; color: var(--primary-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* 7. Expandable detail panel */
+    .member-details {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      margin-top: 0.5rem;
+    }
+    .member-block:hover .member-details,
+    .member-block:focus .member-details,
+    .member-block:focus-within .member-details {
+      max-height: 400px;
+      padding: 1.1rem;
+      opacity: 1;
+    }
+
+    .member-details h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .member-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.5rem;
+    }
+    .member-details ul li {
+      font-size: 0.83rem;
+      color: var(--neutral-700);
+      padding: 0.18rem 0 0.18rem 1.2rem;
+      position: relative;
+      margin: 0;
+    }
+    .member-details ul li::before {
+      content: '▸';
+      color: var(--primary-light);
+      position: absolute;
+      left: 0;
+    }
+    .member-details p { font-size: 0.84rem; color: var(--neutral-700); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+        <div class="logo-icon" aria-hidden="true">🌍</div>
+        <div>
+          <span class="logo-text">CLIMA</span>
+          <span class="logo-sub">SDG 13 · Climate Action</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html" class="active" aria-current="page">Team</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="team-hero">
+      <h1>Meet the Team</h1>
+      <p>Four students. One shared goal. Hover over each member to learn about their role and contributions.</p>
+    </div>
+    <div class="team-name">  
+    <h2>Name and Role of my Teams memary</h2>
+    </div>
+
+    <div class="team-grid" role="list">
+
+      <!-- Member 1 — Pritisha Dawadi -->
+      <div class="member-block" tabindex="0" role="listitem" aria-label="Student 1 – Template and Home Page developer">
+        <div class="member-thumb">
+          <!--
+            SVG CARTOON AVATAR — Pritisha Dawadi
+            South Asian female student: long dark hair, bindi, kurta,
+            gold earrings and dupatta accent. Warm skin tone.
+          -->
+          <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Cartoon avatar of Pritisha Dawadi">
+            <defs>
+              <linearGradient id="bg_pri" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#d4f1e4"/>
+                <stop offset="100%" stop-color="#9fdcbb"/>
+              </linearGradient>
+              <linearGradient id="sk_pri" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#f2b48a"/>
+                <stop offset="100%" stop-color="#d9895a"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="220" fill="url(#bg_pri)"/>
+            <!-- Body / kurta -->
+            <ellipse cx="100" cy="236" rx="70" ry="56" fill="#1a6b3c"/>
+            <!-- Dupatta accent across shoulders -->
+            <path d="M30 200 Q65 174 100 180 Q135 174 170 200"
+                  stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.80"/>
+            <!-- Collar -->
+            <ellipse cx="100" cy="180" rx="22" ry="14" fill="#e8f5ed"/>
+            <!-- Neck -->
+            <rect x="88" y="149" width="24" height="31" rx="10" fill="url(#sk_pri)"/>
+            <!-- Head -->
+            <ellipse cx="100" cy="129" rx="44" ry="49" fill="url(#sk_pri)"/>
+            <!-- Hair — long dark, parted in centre -->
+            <ellipse cx="100" cy="100" rx="46" ry="30" fill="#1e0e06"/>
+            <rect x="54"  y="107" width="15" height="62" rx="8" fill="#1e0e06"/>
+            <rect x="131" y="107" width="15" height="62" rx="8" fill="#1e0e06"/>
+            <!-- Hair highlight -->
+            <ellipse cx="84" cy="96" rx="11" ry="5.5" fill="#3d1a0a" opacity="0.45"/>
+            <!-- Ear lobes -->
+            <ellipse cx="56"  cy="133" rx="6"   ry="8"   fill="url(#sk_pri)"/>
+            <ellipse cx="144" cy="133" rx="6"   ry="8"   fill="url(#sk_pri)"/>
+            <!-- Whites of eyes -->
+            <ellipse cx="85"  cy="128" rx="7.5" ry="8"   fill="white"/>
+            <ellipse cx="115" cy="128" rx="7.5" ry="8"   fill="white"/>
+            <!-- Irises -->
+            <circle cx="86"  cy="129" r="5"   fill="#1e0e06"/>
+            <circle cx="116" cy="129" r="5"   fill="#1e0e06"/>
+            <!-- Eye shine -->
+            <circle cx="88"  cy="127" r="1.8" fill="white"/>
+            <circle cx="118" cy="127" r="1.8" fill="white"/>
+            <!-- Eyebrows -->
+            <path d="M78 120 Q86 115 94 119"  stroke="#1e0e06" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <path d="M106 119 Q114 115 122 120" stroke="#1e0e06" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <path d="M97 138 Q100 145 103 138" stroke="#b06840" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- Smile -->
+            <path d="M88 151 Q100 162 112 151" stroke="#c05a30" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Bindi -->
+            <circle cx="100" cy="114" r="3.5" fill="#e74c3c"/>
+            <!-- Earrings -->
+            <circle cx="56"  cy="137" r="5"   fill="#f5a623"/>
+            <circle cx="144" cy="137" r="5"   fill="#f5a623"/>
+            <!-- Cheek blush -->
+            <ellipse cx="74"  cy="141" rx="9" ry="5" fill="#e8907a" opacity="0.25"/>
+            <ellipse cx="126" cy="141" rx="9" ry="5" fill="#e8907a" opacity="0.25"/>
+          </svg>
+        </div>
+        <div class="member-name-bar">
+          <h3>Pritisha Dawadee</h3>
+          <h3>w2148849</h3>
+          <span>Template &amp; Home Page</span>
+        </div>
+        <div class="member-details" aria-live="polite">
+          <h4>Pages Contributed</h4>
+          <ul>
+            <li>HTML Template &amp; Global CSS</li>
+            <li>Navigation Bar</li>
+            <li>Home Page</li>
+            <li>Gallery Page</li>
+            <li>Content Page (ST1)</li>
+          </ul>
+          <p>Designed the shared template and visual identity used across the entire site, ensuring consistency for all team members.</p>
+        </div>
+      </div>
+
+      <!-- Member 2 — Ajit -->
+      <div class="member-block" tabindex="0" role="listitem" aria-label="Student 2 – Splash Screen and AIS developer">
+        <div class="member-thumb">
+          <!--
+            SVG CARTOON AVATAR — Ajit
+            South Asian male student: short dark hair,
+            casual blue shirt, warm-medium skin tone.
+          -->
+          <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Cartoon avatar of Student 2">
+            <defs>
+              <linearGradient id="bg_aji" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#cce8ff"/>
+                <stop offset="100%" stop-color="#8ec8f5"/>
+              </linearGradient>
+              <linearGradient id="sk_aji" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#c88a56"/>
+                <stop offset="100%" stop-color="#a86c38"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="220" fill="url(#bg_aji)"/>
+            <!-- Body / shirt -->
+            <ellipse cx="100" cy="236" rx="68" ry="55" fill="#2471a3"/>
+            <!-- Shirt collar / V-neck -->
+            <path d="M86 174 L100 163 L114 174 L108 187 L100 181 L92 187Z" fill="#eaf4fb"/>
+            <!-- Neck -->
+            <rect x="89" y="148" width="22" height="27" rx="8" fill="url(#sk_aji)"/>
+            <!-- Head -->
+            <ellipse cx="100" cy="127" rx="43" ry="47" fill="url(#sk_aji)"/>
+            <!-- Hair — short, dark, neatly styled -->
+            <ellipse cx="100" cy="97"  rx="44" ry="26" fill="#120600"/>
+            <rect x="57"  y="102" width="13" height="28" rx="6" fill="#120600"/>
+            <rect x="130" y="102" width="13" height="28" rx="6" fill="#120600"/>
+            <!-- Hair highlight -->
+            <ellipse cx="88" cy="93" rx="9" ry="5" fill="#301408" opacity="0.50"/>
+            <!-- Ears -->
+            <ellipse cx="57"  cy="129" rx="7" ry="9" fill="url(#sk_aji)"/>
+            <ellipse cx="143" cy="129" rx="7" ry="9" fill="url(#sk_aji)"/>
+            <!-- Eyes -->
+            <ellipse cx="85"  cy="127" rx="7.5" ry="8"  fill="white"/>
+            <ellipse cx="115" cy="127" rx="7.5" ry="8"  fill="white"/>
+            <circle cx="86"  cy="128" r="5"   fill="#120600"/>
+            <circle cx="116" cy="128" r="5"   fill="#120600"/>
+            <circle cx="88"  cy="126" r="1.8" fill="white"/>
+            <circle cx="118" cy="126" r="1.8" fill="white"/>
+            <!-- Eyebrows -->
+            <path d="M77 119 Q86 114 94 118"  stroke="#120600" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <path d="M106 118 Q114 114 123 119" stroke="#120600" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <path d="M96 136 Q100 143 104 136" stroke="#805030" stroke-width="2"   fill="none" stroke-linecap="round"/>
+            <!-- Smile -->
+            <path d="M88 148 Q100 159 112 148" stroke="#804020" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Light stubble shadow -->
+            <ellipse cx="100" cy="155" rx="18" ry="8" fill="#80603a" opacity="0.13"/>
+            <!-- Cheek blush -->
+            <ellipse cx="73"  cy="139" rx="9" ry="5" fill="#e08060" opacity="0.18"/>
+            <ellipse cx="127" cy="139" rx="9" ry="5" fill="#e08060" opacity="0.18"/>
+          </svg>
+        </div>
+        <div class="member-name-bar">
+          <h3>Ajit Pandey</h3>
+          <h3>w2148848</h3>
+          <span>Splash &amp; AIS</span>
+        </div>
+        <div class="member-details" aria-live="polite">
+          <h4>Pages Contributed</h4>
+          <ul>
+            <li>Splash Screen</li>
+            <li>Action Impact Simulator</li>
+            <li>Content Page (ST2)</li>
+          </ul>
+          <p>Built the animated entry experience and the interactive impact simulator, making climate data engaging and accessible for users.</p>
+        </div>
+      </div>
+
+      <!-- Member 3 — Najni Khatoon -->
+      <div class="member-block" tabindex="0" role="listitem" aria-label="Student 3 – Feedback and Team page developer">
+        <div class="member-thumb">
+          <!--
+            SVG CARTOON AVATAR — Najni Khatoon
+            South Asian female student wearing a navy-teal hijab,
+            warm smile, gold hijab pin. Amber background.
+          -->
+          <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Cartoon avatar of Student 3">
+            <defs>
+              <linearGradient id="bg_naj" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#fff4cc"/>
+                <stop offset="100%" stop-color="#fde470"/>
+              </linearGradient>
+              <linearGradient id="sk_naj" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#d49060"/>
+                <stop offset="100%" stop-color="#b87040"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="220" fill="url(#bg_naj)"/>
+            <!-- Body / outfit -->
+            <ellipse cx="100" cy="236" rx="68" ry="55" fill="#1a6b3c"/>
+            <!-- Hijab — navy teal -->
+            <ellipse cx="100" cy="112" rx="52" ry="57" fill="#1a4a7a"/>
+            <!-- Hijab drape over shoulders -->
+            <ellipse cx="100" cy="184" rx="65" ry="29" fill="#1a4a7a"/>
+            <!-- Face oval inside hijab -->
+            <ellipse cx="100" cy="131" rx="36" ry="42" fill="url(#sk_naj)"/>
+            <!-- Hijab inner frame line -->
+            <path d="M64 99 Q63 74 100 70 Q137 74 136 99 Q141 131 135 161 Q128 173 100 174 Q72 173 65 161 Q59 131 64 99Z"
+                  fill="none" stroke="#113a60" stroke-width="3"/>
+            <!-- Eyes -->
+            <ellipse cx="85"  cy="128" rx="7.8" ry="8.2" fill="white"/>
+            <ellipse cx="115" cy="128" rx="7.8" ry="8.2" fill="white"/>
+            <circle cx="86"  cy="129" r="5.2" fill="#120600"/>
+            <circle cx="116" cy="129" r="5.2" fill="#120600"/>
+            <circle cx="88"  cy="127" r="2"   fill="white"/>
+            <circle cx="118" cy="127" r="2"   fill="white"/>
+            <!-- Eyelash hint -->
+            <path d="M78 121 Q81 116 86 119"  stroke="#120600" stroke-width="1.8" fill="none"/>
+            <path d="M122 121 Q119 116 114 119" stroke="#120600" stroke-width="1.8" fill="none"/>
+            <!-- Eyebrows -->
+            <path d="M78 121 Q87 115 95 119"  stroke="#120600" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path d="M105 119 Q113 115 122 121" stroke="#120600" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <path d="M97 139 Q100 146 103 139" stroke="#9a6040" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- Warm smile -->
+            <path d="M87 151 Q100 164 113 151" stroke="#9a4a28" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Cheek blush -->
+            <ellipse cx="74"  cy="143" rx="9" ry="5.5" fill="#e89070" opacity="0.28"/>
+            <ellipse cx="126" cy="143" rx="9" ry="5.5" fill="#e89070" opacity="0.28"/>
+            <!-- Hijab pin — gold -->
+            <circle cx="100" cy="176" r="5.5" fill="#f5a623"/>
+            <circle cx="100" cy="176" r="2.5" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div class="member-name-bar">
+          <h3>Najni Khatoon</h3>
+          <h3>w2152992</h3>
+          <span>Feedback &amp; Team</span>
+        </div>
+        <div class="member-details" aria-live="polite">
+          <h4>Pages Contributed</h4>
+          <ul>
+            <li>Feedback &amp; Programme Directory</li>
+            <li>Team Page</li>
+            <li>Content Page (ST3)</li>
+          </ul>
+          <p>Created the community engagement hub and the team presentation page, focusing on accessible form design and user interaction.</p>
+        </div>
+      </div>
+
+      <!-- Member 4 — Subina -->
+      <div class="member-block" tabindex="0" role="listitem" aria-label="Student 4 – Profile and Sitemap developer">
+        <div class="member-thumb">
+          <!--
+            SVG CARTOON AVATAR — Subina
+            South Asian female student: wavy dark shoulder-length hair,
+            purple top, expressive large eyes, lilac background.
+          -->
+          <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Cartoon avatar of Student 4">
+            <defs>
+              <linearGradient id="bg_sub" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#ead5f5"/>
+                <stop offset="100%" stop-color="#c098e0"/>
+              </linearGradient>
+              <linearGradient id="sk_sub" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#cc8858"/>
+                <stop offset="100%" stop-color="#aa6438"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="220" fill="url(#bg_sub)"/>
+            <!-- Body / top -->
+            <ellipse cx="100" cy="236" rx="67" ry="55" fill="#7d3c98"/>
+            <!-- Collar -->
+            <ellipse cx="100" cy="180" rx="21" ry="13" fill="#d7bde2"/>
+            <!-- Neck -->
+            <rect x="89" y="149" width="22" height="30" rx="9" fill="url(#sk_sub)"/>
+            <!-- Head -->
+            <ellipse cx="100" cy="128" rx="43" ry="47" fill="url(#sk_sub)"/>
+            <!-- Hair — wavy shoulder-length dark brown -->
+            <ellipse cx="100" cy="98"  rx="45" ry="28" fill="#160800"/>
+            <path d="M55 107 Q47 130 51 157 Q55 168 62 163 Q57 141 59 117Z" fill="#160800"/>
+            <path d="M145 107 Q153 130 149 157 Q145 168 138 163 Q143 141 141 117Z" fill="#160800"/>
+            <!-- Wave detail strokes -->
+            <path d="M55 125 Q47 131 55 137" stroke="#301408" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M145 125 Q153 131 145 137" stroke="#301408" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <!-- Hair highlight -->
+            <ellipse cx="86" cy="94" rx="11" ry="5.5" fill="#301408" opacity="0.48"/>
+            <!-- Ears -->
+            <ellipse cx="57"  cy="131" rx="6.5" ry="8.5" fill="url(#sk_sub)"/>
+            <ellipse cx="143" cy="131" rx="6.5" ry="8.5" fill="url(#sk_sub)"/>
+            <!-- Eyes — slightly larger / expressive -->
+            <ellipse cx="84"  cy="127" rx="8.5" ry="9"   fill="white"/>
+            <ellipse cx="116" cy="127" rx="8.5" ry="9"   fill="white"/>
+            <circle cx="85"  cy="128" r="5.5" fill="#160800"/>
+            <circle cx="117" cy="128" r="5.5" fill="#160800"/>
+            <circle cx="87"  cy="126" r="2"   fill="white"/>
+            <circle cx="119" cy="126" r="2"   fill="white"/>
+            <!-- Eyelash hints -->
+            <path d="M76 119 Q80 114 86 117"  stroke="#160800" stroke-width="1.8" fill="none"/>
+            <path d="M124 119 Q120 114 114 117" stroke="#160800" stroke-width="1.8" fill="none"/>
+            <!-- Arched eyebrows -->
+            <path d="M76 119 Q85 113 94 118"  stroke="#160800" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <path d="M106 118 Q115 113 124 119" stroke="#160800" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <path d="M97 138 Q100 144 103 138" stroke="#88501a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- Smile -->
+            <path d="M87 149 Q100 162 113 149" stroke="#884020" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Cheek blush -->
+            <ellipse cx="72"  cy="140" rx="9"  ry="5.5" fill="#e08a70" opacity="0.26"/>
+            <ellipse cx="128" cy="140" rx="9"  ry="5.5" fill="#e08a70" opacity="0.26"/>
+            <!-- Earrings — lilac circles -->
+            <circle cx="57"  cy="134" r="5" fill="#c098e0"/>
+            <circle cx="143" cy="134" r="5" fill="#c098e0"/>
+          </svg>
+        </div>
+        <div class="member-name-bar">
+          <h3>Subina Upreti</h3>
+          <h3>w2148855</h3>
+          <span>Profile &amp; Sitemap</span>
+        </div>
+        <div class="member-details" aria-live="polite">
+          <h4>Pages Contributed</h4>
+          <ul>
+            <li>User Profile</li>
+            <li>Sitemap (SVG)</li>
+            <li>Content Page (ST4)</li>
+          </ul>
+          <p>Developed the progressive user profile builder and the interactive SVG sitemap, demonstrating advanced JavaScript and SVG skills.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h4>CLIMA</h4>
+        <p style="font-size:0.85rem;">Student project – University of Westminster 2026.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Navigate</h4>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h4>This Page</h4>
+        <a href="pageEditor_ST3.html">Page Editor – Student 3</a>
+        <a href="validation_ST3.html">Validation – Student 3</a>
+        <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+      </div>
+      <div class="footer-section">
+        <h4>Student 3</h4>
+        <p style="font-size:0.85rem;">Name: Najni Khatoon<br>Student ID: w2152992<br>Role: Feedback &amp; Team</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CLIMA – SDG 13 | <a href="https://www.westminster.ac.uk/accessibility" target="_blank" rel="noopener">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

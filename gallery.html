@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Gallery – Climate in Focus</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Gallery Page – embedded page-specific CSS */
+
+    /* 1. Gallery grid layout */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.2rem;
+      padding: 0 5% 4rem;
+    }
+
+    /* 2. Thumbnail item */
+    .thumb-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      background: var(--neutral-900);
+    }
+    .thumb-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+    .thumb-item:hover img { transform: scale(1.06); opacity: 0.85; }
+
+    /* 3. Thumbnail label */
+    .thumb-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(13,64,37,0.9));
+      color: var(--white);
+      padding: 1.5rem 0.9rem 0.7rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      pointer-events: none;
+    }
+
+    /* 4. Interactive border on hover – JS adds .hovered */
+    .thumb-item.hovered {
+      outline: 3px solid var(--accent);
+    }
+
+    /* 5. Modal overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.78);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: modalIn 0.28s ease;
+    }
+    @keyframes modalIn {
+      from { transform: scale(0.88); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+
+    .modal-img {
+      width: 100%; height: 300px;
+      object-fit: cover;
+    }
+
+    .modal-body { padding: 1.6rem; }
+    .modal-body h3 { color: var(--primary-dark); margin-bottom: 0.5rem; }
+    .modal-body p  { color: var(--neutral-700); font-size: 0.95rem; }
+
+    .modal-close {
+      position: absolute;
+      top: 0.8rem; right: 0.8rem;
+      background: var(--accent);
+      color: var(--primary-dark);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--accent-dark); color: var(--white); }
+
+    /* Customisation controls inside modal */
+    .modal-controls {
+      padding: 0.8rem 1.6rem 1.2rem;
+      border-top: 1px solid var(--neutral-200);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .modal-controls label { font-size: 0.82rem; font-weight: 600; color: var(--neutral-700); }
+    .modal-controls select {
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--neutral-300);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    /* Page intro strip */
+    .gallery-intro {
+      padding: 3rem 5% 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+        <div class="logo-icon" aria-hidden="true">🌍</div>
+        <div>
+          <span class="logo-text">CLIMA</span>
+          <span class="logo-sub">SDG 13 · Climate Action</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html" class="active" aria-current="page">Gallery</a></li>
+          <li><a href="ais.html">Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="gallery-intro">
+      <div class="section-header">
+        <h1>Climate in Focus</h1>
+        <p>A visual journey through the crisis and the solutions. Hover to highlight — click to explore each image's story.</p>
+      </div>
+    </div>
+
+    <div class="gallery-grid" role="list" id="galleryGrid">
+      <!-- Items injected by JS -->
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose" aria-label="Close expanded view">✕</button>
+      <img class="modal-img" id="modalImg" src="#" alt="" />
+      <div class="modal-body" id="modalBody">
+        <h2 id="modalTitle">Image</h2>
+        <p id="modalDesc"></p>
+      </div>
+      <div class="modal-controls">
+        <label for="colourScheme">Colour scheme:</label>
+        <select id="colourScheme">
+          <option value="default">Default</option>
+          <option value="warm">Warm Sunset</option>
+          <option value="cool">Ocean Blue</option>
+          <option value="mono">Monochrome</option>
+        </select>
+        <label for="fontStyle">Font style:</label>
+        <select id="fontStyle">
+          <option value="default">Default</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Monospace</option>
+          <option value="large">Large Text</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>CLIMA</h3>
+        <p style="font-size:0.85rem;">Student project – University of Westminster 2026.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Navigate</h4>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h4>This Page</h4>
+        <a href="pageEditor_ST1.html">Page Editor – Student 1</a>
+        <a href="validation_ST1.html">Validation – Student 1</a>
+        <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+      </div>
+      <div class="footer-section">
+        <h4>Student 1</h4>
+        <p style="font-size:0.85rem;">Name: Pritisha Dawadee <br>Student ID: W2148849 <br>Role: Gallery</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CLIMA – SDG 13 | <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Gallery data ----
+    const galleryData = [
+      {
+        id: 1,
+        src: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=70',
+        alt: 'Aerial view of deforestation showing land cleared of trees',
+        label: 'Deforestation Crisis',
+        desc: 'Every minute, the equivalent of 40 football pitches of forest is lost worldwide. Forests are our greatest carbon sinks – without them, reaching net zero is impossible. Reforestation projects, sustainable farming, and consumer choices around wood products all play a part in reversing this trend.'
+      },
+      {
+        id: 2,
+        src: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=70',
+        alt: 'Large solar panel array in a sunny field',
+        label: 'Solar Power Revolution',
+        desc: 'Solar energy is now the cheapest source of electricity in history. In 2023, the world added a record 290 GW of solar capacity. Community solar schemes allow individuals without rooftops to buy into clean energy, making renewables accessible to all.'
+      },
+      {
+        id: 3,
+        src: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=70',
+        alt: 'Wind turbines on a hilltop at sunset',
+        label: 'Wind Energy',
+        desc: 'Offshore wind farms can power entire cities. The UK alone aims to quadruple offshore capacity by 2030. Wind turbine technician is one of the fastest-growing careers of the decade – a green economy creates real jobs for the next generation.'
+      },
+      {
+        id: 4,
+        src: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&q=70',
+        alt: 'Electric vehicle charging at a public charging point',
+        label: 'Electric Vehicles',
+        desc: 'Transport accounts for around 16% of global greenhouse gas emissions. Switching to EVs, cycling infrastructure, and efficient public transit can dramatically cut this. Many cities are now making public transport free or heavily subsidised to encourage the shift.'
+      },
+      {
+        id: 5,
+        src: 'https://img.freepik.com/premium-vector/conscious-consumption-flat-vector-illustration_277904-41447.jpg',
+        alt: 'Assorted reusable bags and eco-friendly products',
+        label: 'Conscious Consumption',
+        desc: 'Fast fashion and single-use plastics are among the most wasteful aspects of modern life. Choosing second-hand, repairing instead of replacing, and refusing unnecessary packaging are powerful everyday climate actions any student can take.'
+      },
+      {
+        id: 6,
+        src: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=70',
+        alt: 'Community garden in an urban setting',
+        label: 'Urban Food Growing',
+        desc: 'Community gardens, allotments and urban farms build food resilience while reducing food miles. Growing your own food – even herbs on a windowsill – connects you to the food system and reduces demand for resource-intensive agriculture.'
+      },
+      {
+        id: 7,
+        src: 'https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=800&q=70',
+        alt: 'Large crowd at a climate march holding signs',
+        label: 'Climate Activism',
+        desc: 'From Fridays for Future to local campaigns, citizen movements have pushed climate onto the political agenda. Students have led some of the most impactful climate campaigns in history – your voice and vote matter enormously.'
+      },
+      {
+        id: 8,
+        src: 'https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=800&q=70',
+        alt: 'Flooded street in a coastal city',
+        label: 'Rising Sea Levels',
+        desc: 'Sea levels are rising at 3.6mm per year and accelerating. Island nations face existential threats, and major coastal cities including London require significant flood defences. Climate adaptation – alongside mitigation – is now an urgent priority.'
+      }
+    ];
+
+    // ---- Build gallery ----
+    const grid = document.getElementById('galleryGrid');
+    galleryData.forEach(item => {
+      const tile = document.createElement('div');
+      tile.className = 'thumb-item';
+      tile.setAttribute('role', 'listitem');
+      tile.setAttribute('tabindex', '0');
+      tile.setAttribute('aria-label', 'View details: ' + item.label);
+      tile.innerHTML = `
+        <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+        <div class="thumb-label">${item.label}</div>
+      `;
+
+      // Hover via JS event listeners (not CSS :hover alone)
+      tile.addEventListener('mouseenter', () => tile.classList.add('hovered'));
+      tile.addEventListener('mouseleave', () => tile.classList.remove('hovered'));
+
+      // Click / keyboard to open modal
+      const openModal = () => showModal(item);
+      tile.addEventListener('click', openModal);
+      tile.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
+
+      grid.appendChild(tile);
+    });
+
+    // ---- Modal logic ----
+    const overlay   = document.getElementById('modalOverlay');
+    const modalImg  = document.getElementById('modalImg');
+    const modalTitle= document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const closeBtn  = document.getElementById('modalClose');
+
+    function showModal(item) {
+      modalImg.src   = item.src;
+      modalImg.alt   = item.alt;
+      modalTitle.textContent = item.label;
+      modalDesc.textContent  = item.desc;
+      resetCustomisation();
+      overlay.classList.add('active');
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      overlay.classList.remove('active');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Click outside modal box to close
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Keyboard close
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ---- User customisation (colour + font) ----
+    const colourSelect = document.getElementById('colourScheme');
+    const fontSelect   = document.getElementById('fontStyle');
+    const modalBody    = document.getElementById('modalBody');
+
+    const colourMap = {
+      default: { bg: '#ffffff', color: '#1a1a14' },
+      warm:    { bg: '#fff8ee', color: '#5a3000' },
+      cool:    { bg: '#eef4ff', color: '#002050' },
+      mono:    { bg: '#f0f0f0', color: '#111111' }
+    };
+    const fontMap = {
+      default: { fontFamily: 'inherit', fontSize: '0.95rem' },
+      serif:   { fontFamily: 'Georgia, serif', fontSize: '0.95rem' },
+      mono:    { fontFamily: "'Space Mono', monospace", fontSize: '0.85rem' },
+      large:   { fontFamily: 'inherit', fontSize: '1.1rem' }
+    };
+
+    colourSelect.addEventListener('change', applyCustomisation);
+    fontSelect.addEventListener('change', applyCustomisation);
+
+    function applyCustomisation() {
+      const c = colourMap[colourSelect.value];
+      const f = fontMap[fontSelect.value];
+      modalBody.style.background   = c.bg;
+      modalBody.style.color        = c.color;
+      modalBody.style.fontFamily   = f.fontFamily;
+      modalBody.style.fontSize     = f.fontSize;
+    }
+
+    function resetCustomisation() {
+      colourSelect.value = 'default';
+      fontSelect.value   = 'default';
+      applyCustomisation();
+    }
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

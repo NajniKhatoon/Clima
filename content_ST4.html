@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Climate Policy in Nepal – SDG 13</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === CONTENT PAGE ST4 — Climate Policy in Nepal === */
+
+    #side-nav {
+      position: sticky;
+      top: 80px;
+      float: left;
+      width: 200px;
+      background: #e8f5e9;
+      border-left: 4px solid var(--primary);
+      padding: 14px 12px;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      margin-right: 24px;
+      margin-bottom: 20px;
+    }
+    /* FIX 1: was h3 — changed to h2 to fix heading hierarchy */
+    #side-nav h2 { margin: 0 0 10px; font-size: 0.95rem; color: var(--primary-dark); }
+    #side-nav ul { list-style: none; padding: 0; margin: 0; }
+    #side-nav ul li { margin: 6px 0; }
+    #side-nav ul li a { color: var(--primary); font-size: 0.88rem; text-decoration: none; }
+    #side-nav ul li a:hover { text-decoration: underline; color: var(--primary-dark); }
+
+    .content-body { overflow: hidden; padding: 0 5% 3rem; }
+    .content-body section { margin-bottom: 40px; padding-top: 10px; scroll-margin-top: 90px; }
+    .content-body h2 { color: var(--primary-dark); border-bottom: 2px solid var(--neutral-200); padding-bottom: 6px; }
+    .content-body h3 { color: var(--primary); margin: 1rem 0 0.4rem; }
+    .content-body p  { color: var(--neutral-700); line-height: 1.75; margin-bottom: 0.9rem; }
+    .content-body ul { padding-left: 1.5rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
+
+    .content-img {
+      width: 100%; max-width: 560px;
+      display: block; margin: 14px auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--neutral-200);
+    }
+
+    #go-top {
+      position: fixed; bottom: 28px; right: 28px;
+      background: var(--primary); color: var(--white);
+      text-decoration: none; padding: 10px 16px;
+      border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+      box-shadow: var(--shadow-md);
+      transition: background 0.2s; z-index: 999;
+    }
+    #go-top:hover { background: var(--primary-dark); }
+
+    .highlight-box {
+      background: #f0faf4; border-left: 5px solid var(--primary);
+      padding: 14px 18px; border-radius: var(--radius-lg); margin: 16px 0;
+    }
+    .highlight-box strong { color: var(--primary); }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #2d6a4f 100%);
+      color: var(--white); padding: 3rem 5% 2.5rem; text-align: center;
+    }
+    .page-hero h1 { color: var(--white); margin-bottom: 0.5rem; }
+    .page-hero p  { color: var(--neutral-200); margin: 0; font-size: 1.05rem; }
+
+    .stat-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0; }
+    .stat-card {
+      flex: 1; min-width: 130px;
+      background: var(--primary-dark); color: var(--white);
+      border-radius: var(--radius-lg); padding: 1rem; text-align: center;
+    }
+    .stat-card .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+    .stat-card .stat-label { font-size: 0.78rem; opacity: 0.85; margin-top: 0.3rem; }
+
+    /* FIX 2: footer h4 → h3 styled to match original appearance */
+    footer .footer-section h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    @media (max-width: 720px) {
+      #side-nav { float: none; width: 100%; position: static; margin-right: 0; border-radius: var(--radius-lg); }
+      .content-body { padding: 0 5% 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a id="page-top"></a>
+
+<header>
+  <div class="header-inner">
+    <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+      <div class="logo-icon" aria-hidden="true">🌍</div>
+      <div>
+        <span class="logo-text">CLIMA</span>
+        <span class="logo-sub">SDG 13 · Climate Action</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav aria-label="Main navigation">
+      <ul id="navMenu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Impact Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>📋 Climate Policy in Nepal</h1>
+  <p>Student 4 · SDG 13 Climate Action · University of Westminster 2025/26</p>
+</div>
+
+<main>
+  <h1 id="top" style="padding: 2rem 5% 0.5rem; font-size: 1.5rem; color: var(--primary-dark);">
+    Climate Policy in Nepal: From Vulnerability to Leadership
+  </h1>
+  <p style="padding: 0 5% 1rem; color: var(--neutral-700); font-style: italic;">
+    By Subina Upreti – Student 4 &nbsp;|&nbsp; SDG 13: Climate Action
+  </p>
+
+  <!-- FIX 1: changed <h3>Contents</h3> → <h2>Contents</h2> -->
+  <nav aria-label="Page sections" style="padding: 0 5%;">
+    <div id="side-nav">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#why-nepal">Nepal &amp; Climate</a></li>
+        <li><a href="#ndc">Nepal's NDC</a></li>
+        <li><a href="#loss-damage">Loss &amp; Damage</a></li>
+        <li><a href="#adaptation">Adaptation</a></li>
+        <li><a href="#youth-voice">Youth Voice</a></li>
+        <li><a href="#student-actions">Student Actions</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content-body">
+
+    <section id="why-nepal" aria-labelledby="h-why">
+      <h2 id="h-why">Nepal: A Climate-Vulnerable Nation</h2>
+      <p>
+        Nepal is among the world's most climate-vulnerable countries. Ranked consistently in
+        the top ten most at-risk nations by the Global Climate Risk Index, Nepal faces threats
+        from glacial retreat, erratic monsoons, floods, landslides, droughts, and increasingly
+        severe weather events — despite contributing less than 0.1% of global greenhouse gas
+        emissions.
+      </p>
+      <p>
+        This fundamental injustice — extreme vulnerability combined with minimal responsibility —
+        makes climate policy both urgent and deeply political for Nepal. The country must
+        simultaneously adapt to changes it did not cause, build resilience in some of the
+        world's most challenging terrain, and advocate loudly in international forums for the
+        rights of climate-vulnerable nations.
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-num">&lt;0.1%</div>
+          <div class="stat-label">of global GHG emissions from Nepal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Top 10</div>
+          <div class="stat-label">most climate-vulnerable countries globally</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3,624</div>
+          <div class="stat-label">glacial lakes in Nepal — many at risk of outburst</div>
+        </div>
+      </div>
+
+      <img class="content-img"
+           src="https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=700&q=80"
+           alt="Young people marching for climate policy action representing Nepal's youth climate movement" />
+
+      <div class="highlight-box">
+        <strong>Key Fact:</strong> Nepal has over 3,624 glacial lakes, of which 21 are considered
+        at high risk of glacial lake outburst floods (GLOFs). As Himalayan glaciers melt due to
+        climate change, these risks are growing rapidly. (Source: ICIMOD, 2023)
+      </div>
+    </section>
+
+    <section id="ndc" aria-labelledby="h-ndc">
+      <h2 id="h-ndc">Nepal's Nationally Determined Contribution (NDC)</h2>
+      <p>
+        Under the Paris Agreement, every country submits a Nationally Determined Contribution
+        (NDC) — a national climate action plan outlining commitments to reduce emissions and
+        adapt to climate change. Nepal submitted its updated NDC in 2020, with ambitious but
+        realistic targets rooted in the country's circumstances.
+      </p>
+
+      <h3>Key Commitments in Nepal's NDC</h3>
+      <ul>
+        <li><strong>Net-zero emissions by 2045</strong> — one of the most ambitious targets among developing nations, conditional on receiving adequate international climate finance.</li>
+        <li><strong>90% electricity from renewables by 2030</strong> — largely achievable given Nepal's hydropower base.</li>
+        <li><strong>25% electric vehicles by 2025 and 90% by 2030</strong> — an ambitious EV transition target for public and private transport.</li>
+        <li><strong>Forest cover maintained at 45% of national territory</strong> — protecting Nepal's forests as critical carbon sinks and biodiversity reserves.</li>
+        <li><strong>Reducing cooking-related emissions</strong> — supporting the transition from firewood and kerosene to clean cooking solutions for Nepal's rural households.</li>
+      </ul>
+
+      <h3>The Conditionality Problem</h3>
+      <p>
+        Most of Nepal's NDC commitments are "conditional" — meaning they can only be achieved
+        if Nepal receives adequate international climate finance. The country has estimated it
+        needs over USD 3.4 billion to implement its NDC fully. As of 2024, international
+        climate finance flows to Nepal remain far below this figure — a gap that highlights
+        the inadequacy of global climate finance mechanisms for small, vulnerable nations.
+      </p>
+    </section>
+
+    <section id="loss-damage" aria-labelledby="h-ld">
+      <h2 id="h-ld">Loss &amp; Damage: Nepal's Climate Justice Claim</h2>
+      <p>
+        Beyond mitigation and adaptation, Nepal has been a vocal advocate for "loss and damage"
+        — the concept that wealthy, high-emitting countries owe compensation to vulnerable
+        nations for the irreversible harm climate change has already caused. For Nepal, loss
+        and damage is not abstract: it includes lives lost to floods and landslides, glacial
+        lake outburst floods destroying downstream villages, reduced crop yields from erratic
+        monsoons, and the forced migration of rural communities whose livelihoods climate
+        change has made unviable.
+      </p>
+
+      <h3>The Historic COP27 Loss &amp; Damage Fund</h3>
+      <p>
+        At COP27 in Sharm el-Sheikh in 2022, countries agreed to establish a dedicated Loss
+        and Damage fund — a historic breakthrough after decades of advocacy by climate-
+        vulnerable nations including Nepal. Nepal's negotiators and civil society representatives
+        played an important role in building the coalition that achieved this breakthrough.
+        However, the fund's scope, governance, and financing remain contested.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Nepal's position:</strong> As a member of the Climate Vulnerable Forum (CVF) and
+        the V20 group of financially vulnerable countries, Nepal consistently advocates for
+        higher climate ambition from major emitters, stronger loss and damage mechanisms, and
+        accessible, grant-based climate finance for vulnerable nations.
+      </div>
+    </section>
+
+    <section id="adaptation" aria-labelledby="h-adapt">
+      <h2 id="h-adapt">Adaptation: Building Resilience in Nepal</h2>
+      <p>
+        While mitigation (reducing emissions) is crucial globally, for Nepal the more immediate
+        priority is adaptation — building the resilience of communities, infrastructure, and
+        ecosystems to the climate changes that are already underway and will continue regardless
+        of global emissions trajectories.
+      </p>
+
+      <h3>Early Warning Systems</h3>
+      <p>
+        Nepal's Department of Hydrology and Meteorology, supported by international partners,
+        has developed early warning systems for floods and GLOFs in high-risk river basins.
+        These systems have saved lives by giving communities hours of advance warning before
+        flash floods — though coverage remains incomplete and technology-dependent.
+      </p>
+
+      <h3>Climate-Smart Agriculture</h3>
+      <p>
+        As monsoon patterns shift and temperatures rise, Nepal's farmers are experimenting with
+        drought-resistant crop varieties, adjusted planting calendars, and water-harvesting
+        techniques. The government's Climate Smart Village programme, supported by CGIAR and
+        international NGOs, is helping communities adapt their farming systems to new climate
+        realities.
+      </p>
+
+      <h3>Ecosystem-Based Adaptation</h3>
+      <p>
+        Nepal's forests are not only carbon sinks — they also regulate water flow, prevent
+        erosion, and protect communities from floods and landslides. Maintaining and restoring
+        forest cover in watershed areas is therefore one of Nepal's most cost-effective
+        adaptation strategies. Community forestry — in which local communities manage forests
+        sustainably — has been one of Nepal's great development success stories since the 1990s.
+      </p>
+
+      <img class="content-img"
+           src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=700&q=80"
+           alt="Himalayan landscape showing Nepal's glaciers and mountains vulnerable to climate change" />
+    </section>
+
+    <section id="youth-voice" aria-labelledby="h-youth">
+      <h2 id="h-youth">Youth Voice in Nepal's Climate Politics</h2>
+      <p>
+        Nepal's youth climate movement is growing rapidly. Young Nepalis are increasingly
+        vocal — in streets, on social media, in schools and universities, and in international
+        climate negotiations — about the injustice of facing catastrophic climate impacts for
+        emissions they did not cause.
+      </p>
+
+      <h3>Youth for Climate Nepal</h3>
+      <p>
+        Youth for Climate Nepal coordinates young climate activists across the country,
+        organises demonstrations, trains youth negotiators for international climate
+        conferences, and runs awareness campaigns on campuses and in communities. The
+        organisation has sent youth delegates to COP meetings, ensuring Nepali youth voices
+        are heard in the rooms where global climate decisions are made.
+      </p>
+
+      <h3>The Fridays for Future Movement</h3>
+      <p>
+        Nepal's Fridays for Future chapter, inspired by the global movement started by Greta
+        Thunberg, has held regular climate strikes in Kathmandu, Pokhara, and other cities.
+        These strikes — often led by students and young professionals — keep climate change
+        in the public conversation and pressure politicians to take stronger action.
+      </p>
+    </section>
+
+    <section id="student-actions" aria-labelledby="h-student">
+      <h2 id="h-student">What Students Can Do Right Now</h2>
+      <p>
+        Climate policy is shaped by pressure from citizens — including students. Your voice,
+        your vote, and your activism matter. Here is how to engage:
+      </p>
+      <ul>
+        <li><strong>Learn about Nepal's NDC</strong> and share its commitments with peers — public awareness creates political accountability.</li>
+        <li><strong>Join Youth for Climate Nepal</strong> or start a climate action group at your university.</li>
+        <li><strong>Participate in Fridays for Future strikes</strong> — visible, peaceful demonstrations signal to politicians that youth care about climate.</li>
+        <li><strong>Engage with local government:</strong> Attend ward-level meetings and advocate for climate-smart urban planning in your municipality.</li>
+        <li><strong>Amplify Nepal's climate justice case</strong> on social media using #LossAndDamage, #ClimateJustice, and #SDG13.</li>
+        <li><strong>Study climate policy:</strong> Economics, law, political science, and environmental science students have valuable skills Nepal's climate negotiating teams need.</li>
+        <li><strong>Vote:</strong> When you are eligible, support candidates with strong, credible climate commitments.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>Remember:</strong> Nepal's position as a climate-vulnerable nation gives its
+        citizens a powerful moral argument on the world stage. Use that voice. Share Nepal's
+        story. The planet is listening.
+      </div>
+
+      <a href="ais.html" class="btn btn-accent" style="display:inline-block; margin-top:1rem;">Try the Impact Simulator →</a>
+    </section>
+
+  </div>
+</main>
+
+<a href="#page-top" id="go-top" aria-label="Go to top of page">↑ Top</a>
+
+<!-- FIX 2: all <h4> in footer changed to <h3> to fix heading hierarchy -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h3>CLIMA</h3>
+      <p style="font-size:0.85rem;">A student project supporting UN SDG 13 – Climate Action. University of Westminster, 2026.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Navigate</h3>
+      <a href="home.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="ais.html">Impact Simulator</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="team.html">Team</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+    <div class="footer-section">
+      <h3>This Page</h3>
+      <a href="pageEditor_ST4.html">Page Editor – Student 4</a>
+      <a href="validation_ST4.html">Validation – Student 4</a>
+      <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+    </div>
+    <div class="footer-section">
+      <h3>Student 4</h3>
+      <p style="font-size:0.85rem;">Name: Subina Upreti<br>Student ID: w2148855<br>Role: Profile &amp; Sitemap</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 CLIMA – SDG 13 Climate Action | University of Westminster |
+      <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu   = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+
+</body>
+</html>

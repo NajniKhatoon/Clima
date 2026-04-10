@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLIMA | Feedback &amp; Programmes</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* === Feedback Page – Embedded CSS === */
+
+    /* 1. Section dividers */
+    .page-section { padding: 3rem 5%; }
+    .page-section + .page-section { border-top: 2px solid var(--neutral-200); }
+
+    /* 2. Programme cards scroll container */
+    .programs-scroll {
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+      scroll-behavior: smooth;
+    }
+    .programs-scroll::-webkit-scrollbar { width: 6px; }
+    .programs-scroll::-webkit-scrollbar-track { background: var(--neutral-200); border-radius:3px; }
+    .programs-scroll::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius:3px; }
+
+    /* 3. Programme card */
+    .prog-card {
+      display: flex;
+      gap: 1.2rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 1.2rem;
+      margin-bottom: 1.1rem;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .prog-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+    .prog-card img {
+      width: 80px; height: 80px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .prog-info { flex: 1; }
+    .prog-info h4 { margin-bottom: 0.3rem; color: var(--primary-dark); }
+    .prog-info p  { font-size: 0.88rem; color: var(--neutral-700); margin: 0 0 0.6rem; }
+
+    /* 4. Dropdown filter */
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.3rem;
+      flex-wrap: wrap;
+    }
+    .filter-bar select {
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--neutral-300);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--neutral-900);
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    /* 5. Reviews */
+    .rating-summary { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 1.5rem; }
+    .rating-number { font-family: var(--font-display); font-size: 3.5rem; color: var(--primary); line-height:1; }
+    .rating-label  { font-size: 0.95rem; color: var(--neutral-700); }
+
+    /* Reviews grid — full width, 3 equal columns */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .review-card h5 { margin-bottom: 0.35rem; color: var(--primary-dark); }
+    .review-card p  { font-size: 0.85rem; color: var(--neutral-700); margin-bottom: 0.5rem; }
+    .review-meta   { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--neutral-700); }
+    .review-meta .stars { color: var(--accent); font-size: 0.9rem; }
+
+    /* 6. Feedback form — full width */
+    .form-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%; 
+    }
+    .form-section fieldset {
+      border: 1px solid var(--neutral-200);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      margin-bottom: 1.4rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-section legend { font-weight: 700; color: var(--primary); padding: 0 0.5rem; font-size: 0.92rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--neutral-700);
+      margin-bottom: 0.35rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid var(--neutral-300);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--neutral-900);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: var(--neutral-100);
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26,107,60,0.15);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    /* Error / success messages */
+    .field-error {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    .field-error.show { display: block; }
+    .form-group input.invalid,
+    .form-group textarea.invalid { border-color: var(--danger); }
+
+    .char-counter { font-size: 0.78rem; color: var(--neutral-700); text-align: right; }
+
+    .success-msg {
+      background: #e8f5e9;
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.4rem;
+      font-weight: 600;
+      display: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .success-msg.show { display: block; }
+
+    /* Submit button full width */
+    #feedbackForm .btn-accent {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    h3{
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+        <div class="logo-icon" aria-hidden="true">🌍</div>
+        <div>
+          <span class="logo-text">CLIMA</span>
+          <span class="logo-sub">SDG 13 · Climate Action</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Impact Simulator</a></li>
+          <li><a href="feedback.html" class="active" aria-current="page">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE TITLE -->
+    <div style="padding:3rem 5% 1rem;">
+      <h1>Programmes &amp; Feedback</h1>
+      <p>Explore climate action opportunities across Nepal, read what others think, and share your own feedback.</p>
+    </div>
+
+    <!-- PROGRAMME DIRECTORY -->
+    <section class="page-section">
+      <h2 id="prog-heading">Climate Action Programmes in Nepal</h2>
+      <div class="filter-bar">
+        <label for="sortFilter" style="font-weight:600;font-size:0.88rem;">Sort by:</label>
+        <select id="sortFilter" aria-label="Sort programmes">
+          <option>Most Popular</option>
+          <option>Student-Friendly</option>
+          <option>Nearest</option>
+          <option>Newest</option>
+        </select>
+      </div>
+      <div class="programs-scroll" role="list" aria-label="Climate programmes list">
+
+        <div class="prog-card">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=200&q=60" alt="Wind turbines for renewable energy programme" />
+          <div class="prog-info">
+            <h3>Nepalese Youth for Climate Action</h4>
+            <p>A student-led organisation campaigning for ambitious climate policy in Nepal. Run workshops, write to elected representatives, and organise campus events to build momentum for change.</p>
+            <a href="https://nyca.net.np/" class="btn btn-primary" style="font-size:0.82rem;padding:0.4rem 1rem;">Get Involved</a>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <img src="https://greencityrecycler.com/wp-content/uploads/2025/06/gcr1.jpg" alt="Bags of donated goods at a swap event" />
+          <div class="prog-info">
+            <h3>Kathmandu Swap &amp; Share</h4>
+            <p>A campus-based clothes and goods swap programme reducing fast fashion waste in Kathmandu. Attend termly swap events or volunteer as an organiser to earn green credits.</p>
+            <a href="https://www.facebook.com/groups/Kathmandu-Buy-Sell-Swap-1845807395694725/forsaleposts/" class="btn btn-primary" style="font-size:0.82rem;padding:0.4rem 1rem;">Join Now</a>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <img src="https://i.pinimg.com/736x/5b/8d/b1/5b8db1ec953fbcfb03ae03131ff8202a.jpg" alt="Community garden with raised beds" />
+          <div class="prog-info">
+            <h3>Nepal Community Farming Network</h4>
+            <p>Volunteer at organic farming spaces across Nepal's valleys. Learn sustainable agriculture, improve local food security and reduce food miles across Terai and hill communities.</p>
+            <a href="https://naccfl.org.np/" class="btn btn-primary" style="font-size:0.82rem;padding:0.4rem 1rem;">Learn More</a>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=200&q=60" alt="Solar panel installation on a rooftop" />
+          <div class="prog-info">
+            <h3>Solar Together Nepal</h4>
+            <p>A group-buying scheme for solar panels and battery storage tailored for Nepali households. Join thousands of families collectively purchasing renewable energy installations at reduced cost.</p>
+            <a href="https://www.aepc.gov.np/pages/DKTI" class="btn btn-primary" style="font-size:0.82rem;padding:0.4rem 1rem;">Find Out More</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="page-section">
+      <h2 id="reviews-heading">What People Say</h2>
+      <div class="rating-summary">
+        <div class="rating-number">8.6</div>
+        <div>
+          <div style="font-weight:700;font-size:1.1rem;">Excellent</div>
+          <div class="rating-label">Based on 143 verified reviews</div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <h4>Life-changing experience</h5>
+          <p>The Nepal Community Farming Network completely shifted my perspective on food and sustainability. Highly recommend to any student. <a href="#">See more</a></p>
+          <div class="review-meta"><span>Priya S. · Jan 2026</span><span class="stars">★★★★★ 10/10</span></div>
+        </div>
+        <div class="review-card">
+          <h4>Real impact, real community</h5>
+          <p>The NYCA workshops gave me the confidence to start a climate society at Tribhuvan University. The support network across Nepal is incredible. <a href="#">See more</a></p>
+          <div class="review-meta"><span>Marcus T. · Feb 2026</span><span class="stars">★★★★★ 9/10</span></div>
+        </div>
+        <div class="review-card">
+          <h>Swap events are great fun</h5>
+          <p>I've stopped buying new clothes entirely since joining the Kathmandu Swap programme. It's social, fun and genuinely helps the planet. <a href="#">See more</a></p>
+          <div class="review-meta"><span>Ella K. · Mar 2026</span><span class="stars">★★★★☆ 8/10</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK FORM -->
+    <section class="page-section">
+      <h2 id="form-heading">Share Your Feedback</h2>
+      <div class="form-section">
+        <div class="success-msg" id="successMsg" role="alert">
+          ✅ Thank you for your feedback! We'll review it shortly.
+        </div>
+        <form id="feedbackForm" novalidate>
+
+          <fieldset>
+            <legend>Personal Details</legend>
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+              <div class="field-error" id="nameError">Please enter your full name.</div>
+            </div>
+            <div class="form-group">
+              <label for="emailAddr">Email Address *</label>
+              <input type="email" id="emailAddr" name="emailAddr" placeholder="you@example.com" required />
+              <div class="field-error" id="emailError">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+              <label for="telNum">Telephone Number</label>
+              <input type="tel" id="telNum" name="telNum" placeholder="+977 98XXXXXXXX" />
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" rows="3" placeholder="Your address (optional)"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Feedback Details</legend>
+            <div class="form-group">
+              <label for="programme">Programme *</label>
+              <select id="programme" name="programme" required>
+                <option value="">Select a programme…</option>
+                <option>Nepalese Youth for Climate Action</option>
+                <option>Kathmandu Swap &amp; Share</option>
+                <option>Nepal Community Farming Network</option>
+                <option>Solar Together Nepal</option>
+              </select>
+              <div class="field-error" id="progError">Please select a programme.</div>
+            </div>
+            <div class="form-group">
+              <label for="visitDate">Visit Date</label>
+              <input type="date" id="visitDate" name="visitDate" />
+            </div>
+            <div class="form-group">
+              <label for="visitDateTime">Preferred Follow-up Time</label>
+              <input type="datetime-local" id="visitDateTime" name="visitDateTime" />
+            </div>
+            <div class="form-group">
+              <label for="interests">Areas of interest</label>
+              <select id="interests" name="interests" multiple size="4" aria-label="Select one or more interests">
+                <option>Energy</option>
+                <option>Food &amp; Agriculture</option>
+                <option>Transport</option>
+                <option>Advocacy &amp; Policy</option>
+                <option>Waste Reduction</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Comments / Message * <span class="char-counter" id="charCounter">0 / 500</span></label>
+              <textarea id="message" name="message" maxlength="500" rows="5" placeholder="Tell us about your experience or ideas…" required></textarea>
+              <div class="field-error" id="msgError">Please enter a message (max 500 characters).</div>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-accent">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>CLIMA</h3>
+        <p style="font-size:0.85rem;">Student project – University of Westminster 2026.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Navigate</h3>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h3>This Page</h3>
+        <a href="pageEditor_ST3.html">Page Editor – Student 3</a>
+        <a href="validation_ST3.html">Validation – Student 3</a>
+        <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+      </div>
+      <div class="footer-section">
+        <h3>Student 3</h3>
+        <p style="font-size:0.85rem;">Name: Najni Khatoon<br>Student ID: w2152992<br>Role: Feedback &amp; Team</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CLIMA – SDG 13 | <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Live character counter
+    const messageEl   = document.getElementById('message');
+    const charCounter = document.getElementById('charCounter');
+    messageEl.addEventListener('input', () => {
+      charCounter.textContent = `${messageEl.value.length} / 500`;
+    });
+
+    // Form validation
+    document.getElementById('feedbackForm').addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+
+      const clearError = id => {
+        document.getElementById(id).classList.remove('show');
+      };
+      const showError = (fieldId, errId) => {
+        document.getElementById(fieldId).classList.add('invalid');
+        document.getElementById(errId).classList.add('show');
+        valid = false;
+      };
+
+      // Reset errors
+      ['fullName','emailAddr','programme','message'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('invalid');
+      });
+      ['nameError','emailError','progError','msgError'].forEach(clearError);
+
+      const name  = document.getElementById('fullName');
+      const email = document.getElementById('emailAddr');
+      const prog  = document.getElementById('programme');
+      const msg   = document.getElementById('message');
+
+      if (!name.value.trim())  showError('fullName',  'nameError');
+      if (!email.value.trim() || !email.validity.valid) showError('emailAddr', 'emailError');
+      if (!prog.value)         showError('programme', 'progError');
+      if (!msg.value.trim())   showError('message',   'msgError');
+
+      if (valid) {
+        document.getElementById('feedbackForm').reset();
+        charCounter.textContent = '0 / 500';
+        const success = document.getElementById('successMsg');
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

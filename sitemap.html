@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Sitemap</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === Sitemap Page – Embedded CSS === */
+    .sitemap-wrap {
+      padding: 3rem 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .sitemap-svg-container {
+      width: 100%;
+      overflow-x: auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem 1rem;
+    }
+
+    /* SVG node hover and focus */
+    .site-node rect {
+      transition: fill 0.2s ease, stroke-width 0.2s ease;
+    }
+    .site-node:hover rect,
+    .site-node:focus rect {
+      fill: var(--accent, #f4a020) !important;
+      stroke-width: 3px !important;
+    }
+    .site-node:hover text,
+    .site-node:focus text {
+      fill: #0d4025 !important;
+      font-weight: 700;
+    }
+    .site-node {
+      cursor: pointer;
+    }
+    .site-node:focus {
+      outline: 3px solid #f4a020;
+      outline-offset: 3px;
+    }
+
+    
+    footer h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+        <div class="logo-icon" aria-hidden="true">🌍</div>
+        <div>
+          <span class="logo-text">CLIMA</span>
+          <span class="logo-sub">SDG 13 · Climate Action</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="sitemap.html" class="active" aria-current="page">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="sitemap-wrap">
+      <div class="section-header">
+        <h1>Site Map</h1>
+        <p>A visual overview of the CLIMA website structure. Hover over or click any page node to navigate directly to that page.</p>
+      </div>
+
+      <div class="sitemap-svg-container" role="region" aria-label="Interactive website sitemap diagram">
+
+        <svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg"
+             width="100%" height="auto"
+             role="img" aria-label="CLIMA website hierarchy diagram"
+             style="font-family:'DM Sans',sans-serif;">
+
+          <title>CLIMA Website Sitemap</title>
+          <desc>Hierarchical diagram showing all pages of the CLIMA website. Splash Screen leads to Home Page, which connects to Gallery, Action Impact Simulator, Feedback, Team, User Profile, Sitemap, and four Content Pages.</desc>
+
+          <!-- Connector lines -->
+          <!-- Splash → Home -->
+          <line x1="450" y1="68" x2="450" y2="118" stroke="#1a6b3c" stroke-width="2"/>
+          <!-- Home → children -->
+          <line x1="450" y1="158" x2="450" y2="195" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="100" y1="195" x2="800" y2="195" stroke="#1a6b3c" stroke-width="1.5"/>
+          <!-- verticals to main pages -->
+          <line x1="100"  y1="195" x2="100"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="240"  y1="195" x2="240"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="370"  y1="195" x2="370"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="450"  y1="195" x2="450"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="540"  y1="195" x2="540"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="660"  y1="195" x2="660"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="780"  y1="195" x2="780"  y2="230" stroke="#1a6b3c" stroke-width="1.5"/>
+
+          <!-- Content pages bar -->
+          <line x1="450" y1="320" x2="450" y2="370" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="190" y1="370" x2="710" y2="370" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="190" y1="370" x2="190" y2="400" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="370" y1="370" x2="370" y2="400" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="540" y1="370" x2="540" y2="400" stroke="#1a6b3c" stroke-width="1.5"/>
+          <line x1="710" y1="370" x2="710" y2="400" stroke="#1a6b3c" stroke-width="1.5"/>
+
+          <!-- Page Editor / Validation lines -->
+          <line x1="450" y1="478" x2="450" y2="510" stroke="#2d9e5f" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="330" y1="510" x2="570" y2="510" stroke="#2d9e5f" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="330" y1="510" x2="330" y2="535" stroke="#2d9e5f" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="570" y1="510" x2="570" y2="535" stroke="#2d9e5f" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+          <!-- ===== NODES ===== -->
+
+          <!-- Splash Screen -->
+          <a href="splash.html" class="site-node" tabindex="0" role="link" aria-label="Go to Splash Screen">
+            <rect x="355" y="20" width="190" height="48" rx="10" fill="#0d4025" stroke="#f4a020" stroke-width="2"/>
+            <title>Splash Screen</title>
+            <text x="450" y="49" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="600">Splash Screen</text>
+          </a>
+
+          <!-- Home Page -->
+          <a href="home.html" class="site-node" tabindex="0" role="link" aria-label="Go to Home Page">
+            <rect x="340" y="118" width="220" height="50" rx="10" fill="#1a6b3c" stroke="#f4a020" stroke-width="2.5"/>
+            <title>Home Page</title>
+            <text x="450" y="148" text-anchor="middle" font-size="14" fill="#ffffff" font-weight="700">🏠 Home Page</text>
+          </a>
+
+          <!-- Gallery -->
+          <a href="gallery.html" class="site-node" tabindex="0" role="link" aria-label="Go to Gallery">
+            <rect x="42" y="230" width="116" height="44" rx="8" fill="#2d9e5f" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Gallery</title>
+            <text x="100" y="257" text-anchor="middle" font-size="12" fill="#ffffff">Gallery</text>
+          </a>
+
+          <!-- AIS -->
+          <a href="ais.html" class="site-node" tabindex="0" role="link" aria-label="Go to Action Impact Simulator">
+            <rect x="178" y="230" width="124" height="44" rx="8" fill="#2d9e5f" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Impact Simulator</title>
+            <text x="240" y="250" text-anchor="middle" font-size="11" fill="#ffffff">Impact</text>
+            <text x="240" y="265" text-anchor="middle" font-size="11" fill="#ffffff">Simulator</text>
+          </a>
+
+          <!-- Feedback -->
+          <a href="feedback.html" class="site-node" tabindex="0" role="link" aria-label="Go to Feedback">
+            <rect x="312" y="230" width="116" height="44" rx="8" fill="#2d9e5f" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Feedback</title>
+            <text x="370" y="257" text-anchor="middle" font-size="12" fill="#ffffff">Feedback</text>
+          </a>
+
+          <!-- Home - centre label for content pages branch -->
+          <a href="home.html" class="site-node" tabindex="0" role="link" aria-label="Content Pages (via Home)">
+            <rect x="390" y="230" width="120" height="44" rx="8" fill="#2d9e5f" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Content Pages</title>
+            <text x="450" y="250" text-anchor="middle" font-size="11" fill="#ffffff">Content</text>
+            <text x="450" y="265" text-anchor="middle" font-size="11" fill="#ffffff">Pages ↓</text>
+          </a>
+
+          <!-- Team -->
+          <a href="team.html" class="site-node" tabindex="0" role="link" aria-label="Go to Team Page">
+            <rect x="482" y="230" width="116" height="44" rx="8" fill="#2d9e5f" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Team</title>
+            <text x="540" y="257" text-anchor="middle" font-size="12" fill="#ffffff">Team</text>
+          </a>
+
+          <!-- Profile -->
+          <a href="profile.html" class="site-node" tabindex="0" role="link" aria-label="Go to User Profile">
+            <rect x="602" y="230" width="116" height="44" rx="8" fill="#2d9e5f" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>User Profile</title>
+            <text x="660" y="257" text-anchor="middle" font-size="12" fill="#ffffff">User Profile</text>
+          </a>
+
+          <!-- Sitemap -->
+          <a href="sitemap.html" class="site-node" tabindex="0" role="link" aria-label="Go to Sitemap (current page)">
+            <rect x="722" y="230" width="116" height="44" rx="8" fill="#0d4025" stroke="#f4a020" stroke-width="2"/>
+            <title>Sitemap (current page)</title>
+            <text x="780" y="257" text-anchor="middle" font-size="12" fill="#f4a020">Sitemap ★</text>
+          </a>
+
+          <!-- Content Pages row -->
+          <a href="content_ST1.html" class="site-node" tabindex="0" role="link" aria-label="Go to Content Page Student 1 - Renewable Energy">
+            <rect x="125" y="400" width="130" height="44" rx="8" fill="#f0faf4" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Content Page – Renewable Energy (Student 1)</title>
+            <text x="190" y="420" text-anchor="middle" font-size="10.5" fill="#0d4025">Renewable</text>
+            <text x="190" y="434" text-anchor="middle" font-size="10.5" fill="#0d4025">Energy (ST1)</text>
+          </a>
+
+          <a href="content_ST2.html" class="site-node" tabindex="0" role="link" aria-label="Go to Content Page Student 2 - Sustainable Transport">
+            <rect x="305" y="400" width="130" height="44" rx="8" fill="#f0faf4" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Content Page – Sustainable Transport (Student 2)</title>
+            <text x="370" y="420" text-anchor="middle" font-size="10.5" fill="#0d4025">Sustainable</text>
+            <text x="370" y="434" text-anchor="middle" font-size="10.5" fill="#0d4025">Transport (ST2)</text>
+          </a>
+
+          <a href="content_ST3.html" class="site-node" tabindex="0" role="link" aria-label="Go to Content Page Student 3 - Green Consumption">
+            <rect x="475" y="400" width="130" height="44" rx="8" fill="#f0faf4" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Content Page – Green Consumption (Student 3)</title>
+            <text x="540" y="420" text-anchor="middle" font-size="10.5" fill="#0d4025">Green</text>
+            <text x="540" y="434" text-anchor="middle" font-size="10.5" fill="#0d4025">Consumption (ST3)</text>
+          </a>
+
+          <a href="content_ST4.html" class="site-node" tabindex="0" role="link" aria-label="Go to Content Page Student 4 - Climate Policy">
+            <rect x="645" y="400" width="130" height="44" rx="8" fill="#f0faf4" stroke="#1a6b3c" stroke-width="1.5"/>
+            <title>Content Page – Climate Policy (Student 4)</title>
+            <text x="710" y="420" text-anchor="middle" font-size="10.5" fill="#0d4025">Climate</text>
+            <text x="710" y="434" text-anchor="middle" font-size="10.5" fill="#0d4025">Policy (ST4)</text>
+          </a>
+
+          <!-- Page Editor & Validation (dashed - per student) -->
+          <a href="pageEditor_ST4.html" class="site-node" tabindex="0" role="link" aria-label="Go to Student 4 Page Editor">
+            <rect x="265" y="535" width="130" height="38" rx="8" fill="#fff8ee" stroke="#f4a020" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <title>Page Editor (per student)</title>
+            <text x="330" y="558" text-anchor="middle" font-size="10.5" fill="#c07d10">Page Editors</text>
+          </a>
+
+          <a href="validation_ST4.html" class="site-node" tabindex="0" role="link" aria-label="Go to Student 4 Validation Page">
+            <rect x="505" y="535" width="130" height="38" rx="8" fill="#fff8ee" stroke="#f4a020" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <title>Validation Pages (per student)</title>
+            <text x="570" y="558" text-anchor="middle" font-size="10.5" fill="#c07d10">Validation Pages</text>
+          </a>
+
+          <!-- Legend -->
+          <rect x="20" y="605" width="14" height="14" rx="3" fill="#1a6b3c"/>
+          <text x="40" y="617" font-size="10" fill="#3a3a30">Main pages</text>
+          <rect x="120" y="605" width="14" height="14" rx="3" fill="#f0faf4" stroke="#1a6b3c" stroke-width="1.5"/>
+          <text x="140" y="617" font-size="10" fill="#3a3a30">Content pages</text>
+          <rect x="240" y="605" width="14" height="14" rx="3" fill="#fff8ee" stroke="#f4a020" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="260" y="617" font-size="10" fill="#3a3a30">Individual pages</text>
+
+        </svg>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <!-- FIX Error 1: changed h4 → h2 to avoid skipping heading levels (h1 → h4) -->
+        <h2>CLIMA</h2>
+        <p style="font-size:0.85rem;">Student project – University of Westminster 2026.</p>
+      </div>
+      <div class="footer-section">
+        <h2>Navigate</h2>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h2>This Page</h2>
+        <a href="pageEditor_ST4.html">Page Editor – Student 4</a>
+        <a href="validation_ST4.html">Validation – Student 4</a>
+        <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+      </div>
+      <div class="footer-section">
+        <h2>Student 4</h2>
+        <p style="font-size:0.85rem;">Name: Subina Upreti<br>Student ID: w2148855<br>Role: Profile &amp; Sitemap</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CLIMA – SDG 13 | <a href="https://www.westminster.ac.uk/accessibility" target="_blank" rel="noopener">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

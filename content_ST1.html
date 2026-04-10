@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Renewable Energy in Nepal – SDG 13</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === CONTENT PAGE ST1 — Renewable Energy in Nepal === */
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      padding: 3rem 5%;
+    }
+
+    .side-nav {
+      position: sticky;
+      top: 90px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.25rem;
+      border-left: 4px solid var(--primary);
+    }
+    .side-nav h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--neutral-700);
+      margin-bottom: 1rem;
+    }
+    .side-nav ul { list-style: none; padding: 0; margin: 0; }
+    .side-nav ul li a {
+      display: block;
+      padding: 0.45rem 0.5rem;
+      font-size: 0.88rem;
+      color: var(--neutral-900);
+      border-radius: var(--radius);
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .side-nav ul li a:hover { background: var(--neutral-200); color: var(--primary); }
+
+    .content-section {
+      scroll-margin-top: 90px;
+      padding-top: 1rem;
+      margin-bottom: 3rem;
+    }
+    .content-section h2 {
+      border-bottom: 3px solid var(--neutral-200);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      color: var(--primary-dark);
+    }
+    .content-section h3 { color: var(--primary); margin: 1.2rem 0 0.5rem; }
+    .content-section p  { color: var(--neutral-700); line-height: 1.75; margin-bottom: 0.9rem; }
+    .content-section ul { padding-left: 1.5rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
+
+    .content-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin: 1.25rem 0 0.4rem;
+      border: 3px solid var(--neutral-200);
+      display: block;
+    }
+    .img-caption {
+      font-size: 0.78rem;
+      color: var(--neutral-700);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, #e8f5ec 0%, #f0faf4 100%);
+      border-left: 5px solid var(--primary);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout strong { display: block; color: var(--primary); margin-bottom: 0.4rem; font-size: 1rem; }
+    .callout p { margin: 0; font-size: 0.95rem; }
+
+    .stat-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0; }
+    .stat-card {
+      flex: 1; min-width: 130px;
+      background: var(--primary-dark);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-card .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+    .stat-card .stat-label { font-size: 0.78rem; opacity: 0.85; margin-top: 0.3rem; }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 3rem 5% 2.5rem;
+      text-align: center;
+    }
+    .page-hero h1 { color: var(--white); margin-bottom: 0.5rem; }
+    .page-hero p  { color: var(--neutral-200); margin: 0; font-size: 1.05rem; }
+
+    .go-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--primary); color: var(--white);
+      font-size: 0.8rem; font-weight: 700;
+      padding: 0.6rem 1rem; border-radius: var(--radius);
+      text-decoration: none; box-shadow: var(--shadow-md);
+      transition: background 0.2s, transform 0.2s;
+      z-index: 500; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .go-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
+
+    @media (max-width: 720px) {
+      .content-layout { grid-template-columns: 1fr; padding: 2rem 5%; }
+      .side-nav { position: static; }
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-top"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+      <div class="logo-icon" aria-hidden="true">🌍</div>
+      <div>
+        <span class="logo-text">CLIMA</span>
+        <span class="logo-sub">SDG 13 · Climate Action</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav aria-label="Main navigation">
+      <ul id="navMenu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Impact Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>🌿 Renewable Energy in Nepal</h1>
+  <p>Student 1 · SDG 13 Climate Action · University of Westminster 2025/26</p>
+</div>
+
+<main>
+  <div class="content-layout">
+
+    <!-- Sidebar -->
+    <aside>
+      <nav class="side-nav" aria-label="Page sections">
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#hydropower">Hydropower</a></li>
+          <li><a href="#solar">Solar Energy</a></li>
+          <li><a href="#challenges">Challenges</a></li>
+          <li><a href="#student-actions">Student Actions</a></li>
+          <li><a href="#case-studies">Case Studies</a></li>
+          <li><a href="#get-involved">Get Involved</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main article -->
+    <article>
+      <h2 class="visually-hidden">Renewable Energy Article</h2>
+
+      <!-- Overview -->
+      <section id="overview" class="content-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">Nepal's Renewable Energy Opportunity</h2>
+        <p>
+          Nepal is one of the world's richest countries in renewable energy potential. Nestled in the
+          Himalayas, its rivers cascade down steep mountain valleys, offering extraordinary
+          hydropower resources. Yet despite this natural wealth, nearly 15% of Nepal's population
+          still lacks reliable electricity access, and the country remains highly vulnerable to the
+          impacts of climate change it barely contributed to.
+        </p>
+        <p>
+          SDG 13 calls for urgent action on climate change. For Nepal, transitioning to clean,
+          renewable energy is both a climate imperative and a development opportunity — reducing
+          dependence on imported fossil fuels, cutting carbon emissions, and powering communities
+          that have waited too long for reliable electricity.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-num">83,000</div>
+            <div class="stat-label">MW theoretical hydropower potential</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">~3,000</div>
+            <div class="stat-label">MW currently installed capacity</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">15%</div>
+            <div class="stat-label">population without reliable power</div>
+          </div>
+        </div>
+
+        <img class="content-img"
+             src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80"
+             alt="Solar panels against a mountain backdrop representing Nepal's renewable energy potential" />
+        <p class="img-caption">Renewable energy installations are spreading across Nepal's hills and valleys.</p>
+      </section>
+
+      <!-- Hydropower -->
+      <section id="hydropower" class="content-section" aria-labelledby="hydro-title">
+        <h2 id="hydro-title">Hydropower: Nepal's Blue Gold</h2>
+        <p>
+          Nepal's rivers — fed by Himalayan glaciers and monsoon rains — give the country an
+          estimated theoretical hydropower potential of 83,000 megawatts, making it one of the
+          highest in the world per capita. Hydropower already supplies over 90% of Nepal's
+          installed electricity generation capacity.
+        </p>
+
+        <h3>Upper Tamakoshi Hydroelectric Project</h3>
+        <p>
+          The Upper Tamakoshi project, with a capacity of 456 MW, is Nepal's largest domestically
+          funded hydroelectric project. Completed in 2021, it dramatically reduced Nepal's
+          dependence on Indian electricity imports and demonstrated that the country can finance
+          and build major infrastructure independently.
+        </p>
+
+        <h3>The Climate Risk</h3>
+        <p>
+          Climate change poses a paradoxical threat to Nepal's hydropower: glacial retreat will
+          initially increase river flows, but over the long term will reduce them dramatically.
+          Extreme weather events — floods, landslides, and glacial lake outburst floods (GLOFs) —
+          also threaten dam infrastructure. Climate-resilient hydropower design and diversification
+          into other renewables are therefore essential.
+        </p>
+
+        <div class="callout">
+          <strong>Key Fact</strong>
+          <p>Nepal has the second-largest water resources in Asia after China, yet exploits less
+          than 4% of its hydropower potential. The climate action imperative and economic
+          opportunity are both vast.</p>
+        </div>
+      </section>
+
+      <!-- Solar -->
+      <section id="solar" class="content-section" aria-labelledby="solar-title">
+        <h2 id="solar-title">Solar Energy: Power for the Hills</h2>
+        <p>
+          For remote mountain communities that grid infrastructure cannot reach, solar power is
+          often the most practical and affordable solution. Nepal's high altitude and clear skies
+          in many regions make solar irradiation levels excellent — particularly in the Terai
+          plains and mid-hill areas.
+        </p>
+
+        <h3>Off-Grid Solar Systems</h3>
+        <p>
+          The Alternative Energy Promotion Centre (AEPC), supported by the government and
+          international donors, has facilitated the installation of over 1 million solar home
+          systems across Nepal. These systems provide lighting, phone charging, and basic
+          electricity to households far beyond the reach of the national grid.
+        </p>
+
+        <h3>Solar Mini-Grids</h3>
+        <p>
+          Community-scale solar mini-grids are providing electricity to entire villages in
+          remote districts including Humla, Dolpa, and Mustang — places where extending the
+          national grid would cost far more per household than a shared solar installation.
+          These mini-grids also support small businesses, schools, and health posts.
+        </p>
+
+        <img class="content-img"
+             src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80"
+             alt="Wind turbines and solar panels representing clean renewable energy in Nepal" />
+        <p class="img-caption">Clean energy diversification is crucial for Nepal's climate-resilient future.</p>
+      </section>
+
+      <!-- Challenges -->
+      <section id="challenges" class="content-section" aria-labelledby="challenges-title">
+        <h2 id="challenges-title">Challenges to Overcome</h2>
+        <ul>
+          <li><strong>Investment gaps:</strong> Large hydropower projects require billions in upfront capital. Attracting private investment while protecting public interests is a continuing challenge.</li>
+          <li><strong>Glacial lake outburst floods (GLOFs):</strong> As Himalayan glaciers melt due to climate change, glacial lakes are growing rapidly. A GLOF can destroy downstream infrastructure including dams and power lines within hours.</li>
+          <li><strong>Earthquake risk:</strong> Nepal sits in a highly seismically active zone. All energy infrastructure must be designed to withstand major earthquakes — adding cost and complexity.</li>
+          <li><strong>Transmission losses:</strong> Nepal loses approximately 20% of generated electricity through an aging and undersized transmission network. Upgrading the grid is as important as building new generation capacity.</li>
+          <li><strong>Political instability:</strong> Frequent changes of government have disrupted long-term energy planning and slowed project approvals.</li>
+          <li><strong>Forest and biodiversity impacts:</strong> Large hydropower dams can cause significant habitat loss and affect downstream river ecosystems. Environmental impact assessments must be rigorous and transparent.</li>
+        </ul>
+      </section>
+
+      <!-- Student Actions -->
+      <section id="student-actions" class="content-section" aria-labelledby="student-title">
+        <h2 id="student-title">What Students Can Do</h2>
+        <p>
+          As a student — whether studying in Kathmandu, Pokhara, or abroad — you have real power
+          to accelerate Nepal's clean energy transition. Here's how:
+        </p>
+
+        <div class="callout">
+          <strong>5 Actions You Can Take Today</strong>
+          <p>
+            1. Switch to LED bulbs and unplug devices not in use — reducing demand matters.<br />
+            2. Advocate for solar panels on your university campus or hostel rooftop.<br />
+            3. Study energy policy and share what you learn with your community.<br />
+            4. Support and amplify the work of AEPC, WWF Nepal, and local energy NGOs.<br />
+            5. Reduce dependence on diesel generators by lobbying for grid improvement.
+          </p>
+        </div>
+
+        <p>
+          Students studying engineering, economics, environmental science, and policy are
+          especially well-placed to contribute directly. Nepal's energy sector needs the next
+          generation of Nepali professionals who understand both the technical and social
+          dimensions of clean energy transitions.
+        </p>
+      </section>
+
+      <!-- Case Studies -->
+      <section id="case-studies" class="content-section" aria-labelledby="cases-title">
+        <h2 id="cases-title">Inspiring Case Studies from Nepal</h2>
+
+        <h3>Kulekhani Reservoir — Pumped Storage Pioneer</h3>
+        <p>
+          The Kulekhani reservoir near Kathmandu serves as Nepal's primary pumped-storage
+          hydroelectric facility. During the 2015 earthquake, it survived intact and continued
+          supplying power to Kathmandu — demonstrating the importance of resilient, distributed
+          energy systems during disasters.
+        </p>
+
+        <h3>Rural Electrification via Micro-Hydro</h3>
+        <p>
+          Hundreds of small micro-hydro schemes — generating between 5 kW and 100 kW — have
+          brought electricity to remote hill communities across Nepal for the first time.
+          Community-owned and operated, these schemes demonstrate that clean energy and local
+          empowerment go hand in hand. The Practical Action Nepal programme has been instrumental
+          in supporting these community energy projects.
+        </p>
+
+        <h3>Nepal's Power Trade with India</h3>
+        <p>
+          Nepal now exports surplus hydropower to India during monsoon months when river flows
+          are highest — earning valuable foreign exchange and demonstrating the country's
+          potential as a regional clean energy exporter. The 2023 power trade agreement with
+          India set a landmark precedent for South Asian energy cooperation.
+        </p>
+
+        <img class="content-img"
+             src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=80"
+             alt="Community members in Nepal working together on a renewable energy project" />
+        <p class="img-caption">Community involvement is central to Nepal's rural energy access story.</p>
+      </section>
+
+      <!-- Get Involved -->
+      <section id="get-involved" class="content-section" aria-labelledby="get-involved-title">
+        <h2 id="get-involved-title">Get Involved</h2>
+        <p>Ready to make a difference? Here are concrete steps to support Nepal's clean energy future:</p>
+        <ul>
+          <li>Explore internships with the <strong>Alternative Energy Promotion Centre (AEPC)</strong>.</li>
+          <li>Join student chapters of <strong>Engineers Without Borders</strong> working on Nepal energy access.</li>
+          <li>Donate to or volunteer with <strong>Practical Action Nepal</strong>'s micro-hydro programmes.</li>
+          <li>Advocate for your university to source renewable electricity.</li>
+          <li>Raise awareness on social media using <strong>#SDG13</strong> and <strong>#CleanEnergyNepal</strong>.</li>
+        </ul>
+        <a href="ais.html" class="btn btn-accent" style="display:inline-block;margin-top:1rem;">Check Your Climate Impact →</a>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<a href="#page-top" class="go-top" aria-label="Go back to top of page">↑ Top</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h3>CLIMA</h3>
+      <p style="font-size:0.85rem;">A student project supporting UN SDG 13 – Climate Action. University of Westminster, 2026.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Navigate</h3>
+      <a href="home.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="ais.html">Impact Simulator</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="team.html">Team</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+    <div class="footer-section">
+      <h3>This Page</h3>
+      <a href="pageEditor_ST1.html">Page Editor – Student 1</a>
+      <a href="validation_ST1.html">Validation – Student 1</a>
+      <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+    </div>
+    <div class="footer-section">
+      <h3>Student 1</h3>
+      <p style="font-size:0.85rem;">Name: Pritisha Dawadee<br>Student ID: W2148849<br>Role: Template &amp; Home Page</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 CLIMA – SDG 13 Climate Action | University of Westminster |
+      <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu   = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Green Consumption in Nepal – SDG 13</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === CONTENT PAGE ST3 — Green Consumption in Nepal === */
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 3rem 5%;
+    }
+
+    .side-nav {
+      position: sticky;
+      top: 90px;
+      background: #ffffff;
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .side-nav h3 {
+      font-size: 0.92rem; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--neutral-700); margin-bottom: 0.7rem;
+    }
+    .side-nav ul { list-style: none; padding: 0; }
+    .side-nav ul li { margin-bottom: 0.4rem; }
+    .side-nav ul li a {
+      font-size: 0.87rem; color: var(--primary);
+      display: block; padding: 0.3rem 0.5rem;
+      border-radius: var(--radius); transition: background 0.15s; text-decoration: none;
+    }
+    .side-nav ul li a:hover { background: var(--primary-light); color: var(--white); text-decoration: none; }
+
+    .content-article section { margin-bottom: 2.5rem; scroll-margin-top: 90px; }
+    .content-article figure { margin: 1.2rem 0; }
+    .content-article figure img {
+      border-radius: var(--radius-lg); border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-md); width: 100%; max-height: 340px; object-fit: cover; display: block;
+    }
+    .content-article figcaption {
+      font-size: 0.78rem; color: var(--neutral-700);
+      text-align: center; margin-top: 0.4rem; font-style: italic;
+    }
+    .content-article h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem; margin-bottom: 1rem; color: var(--primary-dark);
+    }
+    .content-article h3 { color: var(--primary); margin: 1.1rem 0 0.5rem; }
+    .content-article p  { color: var(--neutral-700); line-height: 1.75; margin-bottom: 0.9rem; }
+    .content-article ul { padding-left: 1.5rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
+
+    .callout {
+      background: #e8f5e9; border-left: 5px solid var(--primary);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: 1rem 1.2rem; margin: 1.2rem 0; font-size: 0.93rem; color: var(--neutral-900);
+    }
+    .callout strong { color: var(--primary); }
+
+    .stat-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+    .stat-box {
+      flex: 1 1 130px; background: var(--primary); color: var(--white);
+      border-radius: var(--radius-lg); padding: 1rem; text-align: center;
+    }
+    .stat-box .stat-num { font-size: 1.9rem; font-weight: 900; color: var(--accent); }
+    .stat-box .stat-label { font-size: 0.78rem; margin-top: 0.2rem; opacity: 0.85; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #1a5c37 0%, #2e7d52 100%);
+      color: var(--white); padding: 3rem 5% 2.5rem; text-align: center;
+    }
+    .page-hero h1 { color: var(--white); margin-bottom: 0.5rem; }
+    .page-hero p  { color: var(--neutral-200); margin: 0; font-size: 1.05rem; }
+
+    #goTop {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--primary); color: var(--white);
+      border: none; border-radius: 50%; width: 46px; height: 46px;
+      font-size: 1.3rem; line-height: 46px; text-align: center;
+      text-decoration: none; box-shadow: var(--shadow-md);
+      transition: background 0.2s, transform 0.2s; z-index: 900; display: block;
+    }
+    #goTop:hover { background: var(--primary-dark); transform: translateY(-3px); text-decoration: none; }
+
+    @media (max-width: 720px) {
+      .content-layout { grid-template-columns: 1fr; padding: 2rem 5%; }
+      .side-nav { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="top"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+      <div class="logo-icon" aria-hidden="true">🌍</div>
+      <div>
+        <span class="logo-text">CLIMA</span>
+        <span class="logo-sub">SDG 13 · Climate Action</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav aria-label="Main navigation">
+      <ul id="navMenu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Impact Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>♻️ Green Consumption in Nepal</h1>
+  <p>Student 3 · SDG 13 Climate Action · University of Westminster 2025/26</p>
+</div>
+
+<main>
+  <div class="content-layout">
+
+    <aside>
+      <nav class="side-nav" aria-label="Page sections">
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#waste-crisis">Waste Crisis</a></li>
+          <li><a href="#plastic">Plastic Pollution</a></li>
+          <li><a href="#food">Food &amp; Agriculture</a></li>
+          <li><a href="#community-action">Community Solutions</a></li>
+          <li><a href="#students">Student Actions</a></li>
+          <li><a href="#success">Success Stories</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="content-article">
+      <h2>Green Consumption in Nepal</h2>
+
+      <section id="overview" aria-labelledby="h-overview">
+        <h2 id="h-overview">Consumption, Waste &amp; Climate in Nepal</h2>
+        <p>
+          Nepal's rapid urbanisation has transformed consumption patterns. In Kathmandu and
+          growing cities like Pokhara and Biratnagar, the rise of packaged goods, fast fashion,
+          and single-use plastics has created a waste crisis that the country's infrastructure
+          is ill-equipped to handle. Open burning of waste — a common practice — releases
+          black carbon and greenhouse gases that contribute both to local air pollution and
+          global climate change.
+        </p>
+        <p>
+          Yet Nepal also has deeply rooted traditions of sustainable consumption: community
+          composting, seasonal eating, hand-me-down clothing, and the repair economy that
+          thrives in local markets. Strengthening these traditions while adapting to modern
+          life is at the heart of green consumption in Nepal.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">600+</div>
+            <div class="stat-label">tonnes of solid waste generated in Kathmandu daily</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">of Kathmandu's waste is organic — compostable</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">40%</div>
+            <div class="stat-label">of waste goes uncollected in many municipalities</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="waste-crisis" aria-labelledby="h-waste">
+        <h2 id="h-waste">Nepal's Urban Waste Crisis</h2>
+        <p>
+          Kathmandu generates over 600 tonnes of solid waste every day, yet collection and
+          disposal systems remain severely inadequate. Waste is often dumped in rivers —
+          including the sacred Bagmati — in open fields, or burned in the open air. The
+          Sisdol landfill, the valley's main dumping ground, has been operating beyond
+          capacity for years and has been a source of conflict with surrounding communities.
+        </p>
+
+        <h3>Open Burning: A Climate and Health Disaster</h3>
+        <p>
+          When waste is burned in open piles — as it routinely is across Nepal — it releases
+          a toxic cocktail of gases including carbon dioxide, methane, dioxins, and black
+          carbon. Black carbon is a particularly potent short-lived climate pollutant, with a
+          warming effect per unit mass far greater than CO₂. It also settles on Himalayan
+          glaciers, darkening them and accelerating melting.
+        </p>
+
+        <figure>
+          <img
+            src="https://i.pinimg.com/1200x/9b/aa/b0/9baab0e7c04a1a4988626ed69838998f.jpg"
+            alt="Reusable bags and eco-friendly products representing green consumption alternatives" />
+          <figcaption>Reusable, sustainable products offer alternatives to single-use plastic waste in Nepal's growing consumer economy.</figcaption>
+        </figure>
+
+        <div class="callout">
+          <strong>Climate fact:</strong> Methane from decomposing organic waste in Nepal's poorly
+          managed landfills and open dumps is a significant and underreported source of the
+          country's greenhouse gas emissions.
+        </div>
+      </section>
+
+      <section id="plastic" aria-labelledby="h-plastic">
+        <h2 id="h-plastic">Nepal's Plastic Pollution Problem</h2>
+        <p>
+          Single-use plastics — bags, bottles, straws, and food packaging — have proliferated
+          rapidly across Nepal over the past two decades. They are now found in rivers, rice
+          paddies, mountain trails, and glacial moraines. Nepal's beloved trekking routes in
+          Annapurna and Everest regions have become globally notorious for plastic waste, despite
+          the efforts of many trekking operators and conservation groups.
+        </p>
+
+        <h3>Nepal's Plastic Ban</h3>
+        <p>
+          Nepal has made several attempts to ban single-use plastics, including in national
+          parks and protected areas. The government announced a ban on plastic bags thinner
+          than 40 microns as far back as 2011, yet enforcement has been uneven. More recently,
+          municipalities including Kathmandu have moved to restrict single-use plastics in
+          public spaces with greater commitment to enforcement.
+        </p>
+
+        <h3>Mountains of Plastic: The Everest Problem</h3>
+        <p>
+          Sagarmatha (Everest) National Park receives tens of thousands of trekkers and
+          climbers annually, many of whom leave behind plastic waste, oxygen canisters, and
+          even tent equipment. Regular clean-up expeditions — led by organisations including
+          the Sagarmatha Pollution Control Committee — have removed tonnes of waste from
+          high altitudes, but the challenge requires systemic solutions including waste
+          management infrastructure, deposit return schemes, and stronger permit conditions.
+        </p>
+      </section>
+
+      <section id="food" aria-labelledby="h-food">
+        <h2 id="h-food">Food, Agriculture &amp; Climate</h2>
+        <p>
+          Nepal's agriculture sector — employing around a quarter of the workforce — is both
+          a victim and a contributor to climate change. Changing monsoon patterns, erratic
+          rainfall, and rising temperatures are already reducing crop yields across the
+          Terai plains and hill terraces that have sustained Nepali communities for centuries.
+        </p>
+
+        <h3>Traditional Sustainable Agriculture</h3>
+        <p>
+          Nepal's traditional hill farming practices — including terrace agriculture,
+          agroforestry, and seed saving — are inherently low-carbon and biodiversity-rich.
+          These practices are increasingly threatened by the allure of chemical-intensive
+          commercial farming, which offers short-term yield gains at the cost of soil health,
+          water quality, and long-term resilience.
+        </p>
+
+        <h3>Food Waste</h3>
+        <p>
+          Significant food is wasted along Nepal's supply chain due to inadequate storage,
+          poor roads, and lack of refrigeration. Reducing post-harvest losses — through
+          improved storage, better roads, and cold chain infrastructure — would not only
+          reduce methane emissions from decomposing food but improve food security and
+          farmer incomes simultaneously.
+        </p>
+
+        <figure>
+          <img
+            src="https://i.pinimg.com/1200x/bf/6d/30/bf6d306b5361201d4f10bd9b856de3c0.jpg"
+            alt="Community garden in Nepal showing sustainable food production practices" />
+          <figcaption>Community gardens and urban agriculture offer sustainable food alternatives in Nepal's growing cities.</figcaption>
+        </figure>
+      </section>
+
+      <section id="community-action" aria-labelledby="h-community">
+        <h2 id="h-community">Community Solutions in Nepal</h2>
+
+        <div class="callout">
+          <strong>Clean Up Nepal:</strong> Founded by young Nepali activists, Clean Up Nepal has
+          mobilised over 100,000 volunteers across the country for street, river, and trail
+          clean-ups — proving that youth-led action can transform communities.
+        </div>
+
+        <h3>Kathmandu Waste Management: Community Composting</h3>
+        <p>
+          Several Kathmandu wards have successfully piloted community composting programmes,
+          turning organic kitchen waste — which makes up 70% of the city's waste stream —
+          into compost for urban gardens and farms. Ward 19 in Lalitpur has become a model
+          for decentralised waste management, with door-to-door collection, waste segregation
+          at source, and a community composting centre serving hundreds of households.
+        </p>
+
+        <h3>The Doko Recyclers Model</h3>
+        <p>
+          Doko Recyclers, a Kathmandu-based social enterprise, collects recyclable materials
+          directly from households and offices, processes them, and sells them to recycling
+          facilities. By professionalising the informal waste-picker economy, Doko has
+          improved livelihoods while increasing recycling rates in areas it serves.
+        </p>
+
+        <h3>Bagmati Civilisation Project</h3>
+        <p>
+          The Bagmati River Civilisation Project represents Nepal's most ambitious urban
+          environmental restoration effort. By relocating informal settlements from the
+          flood plain, cleaning the river, and creating riverside parks and cycling paths,
+          the project is transforming Kathmandu's relationship with its most sacred river.
+        </p>
+      </section>
+
+      <section id="students" aria-labelledby="h-students">
+        <h2 id="h-students">What Students Can Do</h2>
+        <p>
+          As a student in Nepal, your consumption choices, your voice, and your community
+          connections are all powerful tools for change.
+        </p>
+
+        <ul>
+          <li><strong>Segregate waste at source:</strong> Separate organic, recyclable, and non-recyclable waste — the single most impactful household action for improving waste management.</li>
+          <li><strong>Carry a reusable bag and water bottle:</strong> Refuse single-use plastic at every opportunity.</li>
+          <li><strong>Compost organic kitchen waste:</strong> Even a small composting setup on a rooftop or balcony diverts waste from landfill and produces valuable fertiliser.</li>
+          <li><strong>Buy second-hand and repair before replacing:</strong> Nepal's traditional repair economy is both sustainable and economically empowering.</li>
+          <li><strong>Volunteer with Clean Up Nepal:</strong> Monthly events in cities and on popular trekking routes welcome student volunteers.</li>
+          <li><strong>Advocate on campus:</strong> Lobby for single-use plastic bans, better recycling facilities, and food waste composting at your university.</li>
+          <li><strong>Choose local and seasonal food:</strong> Eating locally grown, seasonal produce reduces the carbon footprint of your diet and supports Nepali farmers.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>At your university:</strong> Advocate for your institution to adopt a comprehensive
+          sustainability policy including waste reduction targets, a plastic-free campus commitment,
+          and a community garden or composting programme.
+        </div>
+      </section>
+
+      <section id="success" aria-labelledby="h-success">
+        <h2 id="h-success">Success Stories from Nepal</h2>
+
+        <h3>Pokhara's Plastic-Free Lake Campaign</h3>
+        <p>
+          Pokhara's lakeside area, centred on Phewa Lake, has seen sustained community action
+          to reduce plastic pollution. Local businesses, trekking operators, and the municipal
+          government have collaborated to restrict single-use plastics near the lake, install
+          waste bins, and run regular clean-up campaigns. The lake's water quality has measurably
+          improved in sections where these efforts have been most concentrated.
+        </p>
+
+        <h3>Sagarmatha Pollution Control Committee</h3>
+        <p>
+          Operating since 1991, the SPCC has collected over 100 tonnes of waste from Everest
+          base camp and surrounding trails. The organisation trains porters in waste management,
+          operates waste deposits at key checkpoints, and advocates for stronger regulations
+          on expedition waste. Its work has become a model for high-altitude waste management
+          worldwide.
+        </p>
+
+        <h3>Youth Innovation Lab Nepal</h3>
+        <p>
+          Based in Kathmandu, Youth Innovation Lab Nepal supports young people to design
+          and implement environmental solutions including waste reduction campaigns, recycling
+          awareness programmes, and clean technology innovations. Their incubation programme
+          has supported dozens of youth-led sustainability enterprises across Nepal.
+        </p>
+
+        <figure>
+          <img
+            src="https://images.unsplash.com/photo-1569163139599-0f4517e36f51?w=900&q=80"
+            alt="Young people marching for climate and green consumption policy in Nepal" />
+          <figcaption>Youth-led climate action is growing rapidly across Nepal's cities and campuses.</figcaption>
+        </figure>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<a href="#top" id="goTop" title="Go back to the top of the page" aria-label="Go to top of page">↑</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h4>CLIMA</h4>
+      <p style="font-size:0.85rem;">A student project supporting UN SDG 13 – Climate Action. University of Westminster, 2026.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Navigate</h4>
+      <a href="home.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="ais.html">Impact Simulator</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="team.html">Team</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+    <div class="footer-section">
+      <h4>This Page</h4>
+      <a href="pageEditor_ST3.html">Page Editor – Student 3</a>
+      <a href="validation_ST3.html">Validation – Student 3</a>
+      <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+    </div>
+    <div class="footer-section">
+      <h4>Student 3</h4>
+      <p style="font-size:0.85rem;">Name: Najni Khatoon<br>Student ID: W2152992<br>Role: Feedback &amp; Team</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 CLIMA – SDG 13 Climate Action | University of Westminster |
+      <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu   = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+
+</body>
+</html>

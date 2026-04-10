@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Page Editor – Student 2</title>
+  <style>
+    :root { --primary:#1a6b3c;--primary-dark:#0d4025;--accent:#f4a020;--white:#fff;--neutral-100:#f5f5f0;--neutral-200:#e8e8e0;--neutral-700:#3a3a30;--neutral-900:#1a1a14;--radius:8px;--shadow-sm:0 2px 8px rgba(0,0,0,.10); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Georgia',serif;background:var(--neutral-100);color:var(--neutral-900);line-height:1.75;font-size:16px;}
+    a{color:var(--primary);text-decoration:underline;}
+    a:hover{color:var(--accent);}
+    header{background:var(--primary-dark);color:var(--white);padding:1.5rem 5%;}
+    header h1{font-size:1.8rem;letter-spacing:0.04em;}
+    header p{font-size:0.9rem;opacity:0.75;margin-top:0.3rem;}
+    .container{max-width:900px;margin:0 auto;padding:3rem 5%;}
+    .contents-box{background:var(--white);border:1px solid var(--neutral-200);border-radius:var(--radius);padding:1.5rem 2rem;margin-bottom:3rem;box-shadow:var(--shadow-sm);}
+    .contents-box h2{color:var(--primary);margin-bottom:1rem;font-size:1.1rem;}
+    .contents-box ol{padding-left:1.3rem;}
+    .contents-box li{margin-bottom:0.4rem;font-size:0.92rem;}
+    .pe-section{margin-bottom:3.5rem;padding-bottom:2rem;border-bottom:2px solid var(--neutral-200);}
+    .pe-section h2{color:var(--primary-dark);font-size:1.6rem;margin-bottom:0.8rem;}
+    .pe-section h3{color:var(--primary);font-size:1.15rem;margin:1.5rem 0 0.5rem;}
+    .pe-section p{margin-bottom:1rem;}
+    .pe-section ul{padding-left:1.5rem;margin-bottom:1rem;}
+    .pe-section li{margin-bottom:0.4rem;}
+    code{background:#f0faf4;border:1px solid #c8e6c9;border-radius:4px;padding:0.1rem 0.4rem;font-family:'Courier New',monospace;font-size:0.88rem;color:var(--primary-dark);}
+    table{width:100%;border-collapse:collapse;font-size:0.88rem;margin:1rem 0;}
+    th{background:var(--primary);color:var(--white);padding:0.6rem 0.8rem;text-align:left;}
+    td{padding:0.6rem 0.8rem;border-bottom:1px solid var(--neutral-200);}
+    tr:nth-child(even) td{background:var(--neutral-100);}
+    .go-top{position:fixed;bottom:2rem;right:2rem;background:var(--primary);color:var(--white);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+    .go-top:hover{background:var(--accent);color:var(--primary-dark);}
+    footer{background:var(--primary-dark);color:#e8e8e0;padding:1.5rem 5%;font-size:0.85rem;margin-top:3rem;}
+    footer a{color:var(--accent);}
+    .link-btn{display:inline-block;margin-top:0.5rem;padding:0.4rem 1rem;background:var(--primary);color:var(--white);border-radius:var(--radius);text-decoration:none;font-size:0.85rem;}
+    .link-btn:hover{background:var(--accent);color:var(--primary-dark);}
+  </style>
+</head>
+<body>
+
+<header id="top">
+  <h1>Page Editor – Student 2</h1>
+  <p>Role: Splash Screen &amp; Action Impact Simulator | CLIMA – SDG 13 Climate Action | University of Westminster 2025/26</p>
+</header>
+
+<div class="container">
+
+  <!-- CONTENTS -->
+  <div class="contents-box" role="navigation" aria-label="Page contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#overview">Student Overview</a></li>
+      <li><a href="#pages">Pages Implemented</a></li>
+      <li><a href="#technical">Technical Descriptions</a></li>
+      <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+      <li><a href="#accessibility">Accessibility Considerations</a></li>
+      <li><a href="#janet">JANET Compliance</a></li>
+      <li><a href="#meetings">Group Meetings Log</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. OVERVIEW -->
+  <section class="pe-section" id="overview" aria-labelledby="ov-h">
+    <h2 id="ov-h">1. Student Overview</h2>
+    <p><strong>Name:</strong> Ajit Pandey</p>
+    <p><strong>Student ID:</strong> [w2148848]</p>
+    <p><strong>Role:</strong> Splash Screen &amp; Action Impact Simulator</p>
+    <p><strong>Completed Pages / Tasks:</strong> Splash Screen, Action Impact Simulator, Content Page (ST2)</p>
+  </section>
+
+  <!-- 2. PAGES -->
+  <section class="pe-section" id="pages" aria-labelledby="pg-h">
+    <h2 id="pg-h">2. Pages Implemented</h2>
+    <p>The following pages were implemented as part of my individual contribution to the CLIMA group website:</p>
+    <ul>
+      <li>Splash Screen (splash.html)</li>
+      <li>Action Impact Simulator (ais.html)</li>
+      <li>Content Page (content_ST2.html) – Sustainable Transport in Nepal</li>
+    </ul>
+    <p>Links to live pages (open in new tab):</p>
+    <a class="link-btn" href="content_ST2.html" target="_blank" rel="noopener">View Content Page ↗</a>
+    <a class="link-btn" href="validation_ST2.html" target="_blank" rel="noopener">View Validation Page ↗</a>
+  </section>
+
+  <!-- 3. TECHNICAL -->
+  <section class="pe-section" id="technical" aria-labelledby="tech-h">
+    <h2 id="tech-h">3. Technical Description of Implemented Pages</h2>
+
+    <h3>HTML Structure</h3>
+    <p>All pages use semantic HTML5 elements to clearly communicate structure to both browsers and assistive technologies. Key elements used include:</p>
+    <ul>
+      <li><code>&lt;header&gt;</code> – Contains the site logo and navigation bar, shared across all pages.</li>
+      <li><code>&lt;nav&gt;</code> – Wraps the navigation menu with an <code>aria-label</code> for screen reader clarity.</li>
+      <li><code>&lt;main&gt;</code> – Holds the unique page content, ensuring a clear landmark for keyboard users.</li>
+      <li><code>&lt;section&gt;</code> / <code>&lt;article&gt;</code> – Used to group thematically related content with appropriate headings.</li>
+      <li><code>&lt;footer&gt;</code> – Contains links to the Page Editor, Validation, and student details.</li>
+    </ul>
+
+    <h3>CSS Techniques</h3>
+    <p>The Global CSS (<code>style.css</code>) defines the shared design system including the colour palette, typography, navigation, cards, and buttons. CSS Custom Properties (variables) ensure consistency across all pages. Key techniques used in my pages include:</p>
+    <ul>
+      <li><strong>CSS Grid</strong> – Used for card layouts (e.g. <code>grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))</code>) providing responsive multi-column layouts without media queries.</li>
+      <li><strong>CSS Flexbox</strong> – Used in the header, navigation, and footer for alignment and spacing.</li>
+      <li><strong>CSS Transitions</strong> – Applied to hover effects on cards, navigation links, and buttons to provide smooth, non-jarring visual feedback.</li>
+      <li><strong>Embedded CSS</strong> – Page-specific styles are placed within a <code>&lt;style&gt;</code> block in the HTML <code>&lt;head&gt;</code> to keep page-specific styles separate from the shared global CSS.</li>
+    </ul>
+
+    <h3>JavaScript</h3>
+    <p>JavaScript is used on my pages to provide interactivity that enhances the user experience without removing functionality for non-JS users where possible. Key uses include:</p>
+    <ul>
+      <li>
+        <strong>Navigation Toggle</strong> – A <code>click</code> event listener on the hamburger
+        button uses <code>classList.toggle('open')</code> to show or hide the menu on small screens,
+        with <code>aria-expanded</code> updated dynamically for accessibility.
+      </li>
+      <li>
+        <strong>Splash Screen Redirect</strong> – A <code>setTimeout()</code> function on the splash
+        page automatically redirects the user to the home page after a set delay, providing an
+        animated entry experience without requiring any user interaction.
+      </li>
+      <li>
+        <strong>Impact Simulator Logic</strong> – The Action Impact Simulator uses <code>input</code>
+        and <code>change</code> event listeners on form controls to dynamically calculate and display
+        a user's estimated carbon impact in real time, updating result values in the DOM using
+        <code>textContent</code> without requiring a page reload.
+      </li>
+      <li>
+        <strong>Smooth Scroll Navigation</strong> – Sidebar anchor links combined with the CSS
+        property <code>scroll-margin-top</code> ensure sections scroll into view without being
+        hidden behind the fixed header.
+      </li>
+    </ul>
+
+    <h3>Design and Implementation Rationale</h3>
+    <p>The green colour palette was chosen to directly evoke the environmental theme of SDG 13, while the amber accent provides energy and urgency. The Bebas Neue display font creates a bold, confident identity appropriate for a campaign-style website, while DM Sans provides comfortable body text readability. Cards were chosen as the primary content pattern because they allow consistent, scannable presentation of information across varied content types.</p>
+  </section>
+
+  <!-- 4. CHALLENGES -->
+  <section class="pe-section" id="challenges" aria-labelledby="ch-h">
+    <h2 id="ch-h">4. Challenges &amp; Lessons Learned</h2>
+
+    <p><strong>Challenge 1: Building the Impact Simulator calculations</strong></p>
+    <p>
+      When building the Action Impact Simulator, getting the carbon calculation logic to update
+      correctly across multiple inputs at the same time was tricky. If a user changed one slider,
+      the total result needed to recalculate based on all current input values, not just the one
+      that changed. I fixed this by writing a single <code>calculateImpact()</code> function that
+      reads all input values together and is called by every event listener, rather than having
+      separate calculations per input. This taught me the importance of centralising logic in one
+      reusable function instead of duplicating code.
+    </p>
+
+    <p><strong>Challenge 2: Splash screen timing across devices</strong></p>
+    <p>
+      The splash screen used <code>setTimeout()</code> to redirect after a delay, but on slower
+      devices the animation had not finished playing before the redirect fired. I resolved this by
+      matching the timeout duration exactly to the CSS animation duration and testing across
+      multiple screen sizes. This taught me that JavaScript timing and CSS animation timing must
+      be coordinated carefully, and that what works on a fast machine may behave differently on
+      slower hardware.
+    </p>
+
+    <p><strong>Challenge 3: Heading hierarchy breaking validation</strong></p>
+    <p>
+      When I ran the W3C validator on my content page, it flagged that headings were skipping
+      levels — jumping from <code>h2</code> to <code>h4</code> in the footer. I had not considered
+      headings as a document outline before, only as visual sizing. Fixing this required changing
+      all footer headings from <code>&lt;h4&gt;</code> to <code>&lt;h3&gt;</code>. This taught me
+      that heading levels define document structure for screen readers, not just visual appearance.
+    </p>
+  </section>
+
+  <!-- 5. ACCESSIBILITY -->
+  <section class="pe-section" id="accessibility" aria-labelledby="ac-h">
+    <h2 id="ac-h">5. Accessibility Considerations</h2>
+    <p>Accessibility was considered throughout the design and development of my pages. Key techniques applied include:</p>
+    <ul>
+      <li><strong>Alt text:</strong> All images include descriptive <code>alt</code> attributes that communicate the content and purpose of each image to screen reader users.</li>
+      <li><strong>Semantic HTML:</strong> Using appropriate elements (<code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>) creates a meaningful document outline for assistive technologies.</li>
+      <li><strong>ARIA attributes:</strong> Where semantic HTML alone is insufficient (e.g. modal dialogs, live regions, toggle buttons), ARIA attributes such as <code>aria-label</code>, <code>aria-expanded</code>, <code>aria-live</code>, and <code>role</code> were added.</li>
+      <li><strong>Keyboard navigation:</strong> Interactive elements are accessible via keyboard. Custom interactive elements (e.g. gallery tiles, team member blocks) include <code>tabindex="0"</code> and keyboard event listeners.</li>
+      <li><strong>Colour contrast:</strong> Text and background colour combinations were chosen to meet WCAG AA contrast ratio requirements (minimum 4.5:1 for normal text).</li>
+      <li><strong>Focus styles:</strong> Visible focus styles are preserved so keyboard users can track their position on the page.</li>
+    </ul>
+  </section>
+
+  <!-- 6. JANET -->
+  <section class="pe-section" id="janet" aria-labelledby="jan-h">
+    <h2 id="jan-h">6. Compliance with JANET Regulations</h2>
+    <p>All pages published on the University of Westminster web server comply with JANET (Joint Academic Network) regulations governing web page publication. The following practices demonstrate compliance:</p>
+    <ul>
+      <li><strong>Appropriate content:</strong> All content is relevant to the academic project, appropriate for a university audience, and does not contain offensive, illegal or discriminatory material.</li>
+      <li><strong>Responsible use of resources:</strong> External images are sourced from royalty-free providers (Unsplash) and are credited in the references section. No copyrighted material is reproduced without permission.</li>
+      <li><strong>No malicious code:</strong> All JavaScript on the site serves legitimate user interface purposes and does not attempt to access user data, track users, or perform any unauthorised actions.</li>
+      <li><strong>Professional conduct:</strong> The website represents the University of Westminster appropriately and aligns with its Being Westminster strategy and commitment to the UN SDGs.</li>
+      <li><strong>Data handling:</strong> The feedback form does not send data to any server. No personal data is collected, stored, or transmitted.</li>
+    </ul>
+  </section>
+
+  <!-- 7. MEETINGS LOG -->
+  <section class="pe-section" id="meetings" aria-labelledby="mt-h">
+    <h2 id="mt-h">7. Group Meetings &amp; Contribution Log</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Date &amp; Time</th><th>Format</th><th>Objective</th><th>Attended</th><th>My Individual Contribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>March 1, 2026, 10:00 AM</td><td>Face-to-face</td><td>Choose SDG and assign roles</td><td>Yes</td><td>Participated in SDG selection discussion; agreed to take on the Splash Screen and Action Impact Simulator pages; contributed ideas for the overall site structure and user journey</td></tr>
+        <tr><td>2</td><td>March 8, 2026, 2:00 PM</td><td>Online (Teams)</td><td>Agree visual design and colour palette</td><td>Yes</td><td>Reviewed proposed colour schemes and gave feedback on contrast ratios; confirmed that the green and amber palette would work for the simulator's result display elements</td></tr>
+        <tr><td>3</td><td>March 15, 2026, 10:00 AM</td><td>Face-to-face</td><td>Review shared template and CSS</td><td>Yes</td><td>Tested the shared template on my pages; identified a spacing issue in the footer on mobile and reported it to Student 1; began planning the splash screen animation</td></tr>
+        <tr><td>4</td><td>March 22, 2026, 2:00 PM</td><td>Online</td><td>Progress review – first drafts</td><td>Yes</td><td>Demonstrated the working splash screen redirect and early simulator prototype; received feedback on improving the simulator's result readability; updated layout based on team suggestions</td></tr>
+        <tr><td>5</td><td>March 29, 2026, 10:00 AM</td><td>Face-to-face</td><td>Integration and testing</td><td>Yes</td><td>Integrated my pages into the shared project folder; tested the simulator across different browsers; fixed a timing issue with the splash screen on slower devices</td></tr>
+        <tr><td>6</td><td>April 5, 2026, 2:00 PM</td><td>Online</td><td>Final review and submission prep</td><td>Yes</td><td>Validated my pages using the W3C validator and fixed heading hierarchy errors; proofread content page text; confirmed all links and navigation worked correctly before submission</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 8. REFERENCES -->
+  <section class="pe-section" id="references" aria-labelledby="ref-h">
+    <h2 id="ref-h">8. References</h2>
+    <p>All external resources consulted during the development of this project are listed below. References are formatted in APA style.</p>
+    <ul>
+      <li>United Nations. (2015). <em>Sustainable Development Goal 13: Climate Action</em>. <a href="https://sdgs.un.org/goals/goal13" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal13</a></li>
+      <li>W3Schools. (2024). <em>HTML Tutorial</em>. <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">https://www.w3schools.com/html/</a></li>
+      <li>MDN Web Docs. (2024). <em>CSS Reference</em>. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/CSS</a></li>
+      <li>W3C. (2024). <em>Web Content Accessibility Guidelines (WCAG) 2.1</em>. <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener">https://www.w3.org/TR/WCAG21/</a></li>
+      <li>Unsplash. (2024). <em>Free high-resolution photos</em>. <a href="https://unsplash.com" target="_blank" rel="noopener">https://unsplash.com</a> [Images used under Unsplash License]</li>
+      <li>Google Fonts. (2024). <em>Bebas Neue, DM Sans, Space Mono</em>. <a href="https://fonts.google.com" target="_blank" rel="noopener">https://fonts.google.com</a></li>
+    </ul>
+  </section>
+
+</div><!-- end container -->
+
+<a href="#top" class="go-top" aria-label="Back to top">↑</a>
+
+<footer>
+  <p>Student 2 – Ajit Pandey | <a href="validation_ST2.html">Validation Page</a> | <a href="home.html">Home</a> | &copy; 2026 CLIMA – University of Westminster</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Your Climate Profile</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === User Profile – Embedded CSS === */
+
+    /* 1. Profile layout */
+    .profile-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2.5rem 5%;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .profile-wrapper { grid-template-columns: 1fr; }
+    }
+
+    /* 2. Control panel */
+    .control-panel {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 90px;
+    }
+    .control-panel h2 { margin-bottom: 0.4rem; }
+    .control-panel p  { font-size: 0.9rem; color: var(--neutral-700); margin-bottom: 1.5rem; }
+
+    /* 3. Step buttons */
+    .step-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .step-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius);
+      border: 2px solid var(--neutral-300);
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      color: var(--neutral-700);
+    }
+    .step-btn:hover  { border-color: var(--primary); color: var(--primary); }
+    .step-btn.done   { background: var(--primary); border-color: var(--primary); color: var(--white); }
+    .step-btn.active { border-color: var(--accent); color: var(--accent-dark); }
+
+    /* 4. Progress bar */
+    .progress-section { margin-bottom: 1.5rem; }
+    .progress-label { font-size: 0.85rem; font-weight: 600; color: var(--neutral-700); margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+    .prog-bar-wrap { background: var(--neutral-200); border-radius: 2rem; height: 14px; overflow: hidden; }
+    .prog-bar-fill { height: 100%; border-radius: 2rem; background: var(--primary); transition: width 0.4s ease; width: 0%; }
+
+    /* 5. Profile output panel */
+    .profile-output {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      min-height: 300px;
+    }
+    .profile-output h2 { margin-bottom: 1.5rem; }
+
+    /* 6. Profile section */
+    .profile-section {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin-bottom: 1.4rem;
+      display: none;
+    }
+    .profile-section.visible { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+    
+    .profile-section h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .profile-item { display: flex; gap: 0.5rem; font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .profile-item .label { font-weight: 600; color: var(--neutral-700); min-width: 110px; }
+    .profile-item .value { color: var(--neutral-900); }
+
+    /* 7. Placeholder text */
+    .empty-msg { text-align: center; color: var(--neutral-700); padding: 3rem 0; }
+    .empty-msg .icon { font-size: 2.5rem; display: block; margin-bottom: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+        <div class="logo-icon" aria-hidden="true">🌍</div>
+        <div>
+          <span class="logo-text">CLIMA</span>
+          <span class="logo-sub">SDG 13 · Climate Action</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html" class="active" aria-current="page">Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div style="padding:3rem 5% 1rem;">
+      <h1>Build Your Climate Profile</h1>
+      <p>Answer a few questions to create your personal climate action profile. You can skip any step and come back later.</p>
+    </div>
+
+    <div class="profile-wrapper">
+
+      <!-- Left: controls -->
+      
+      <div class="control-panel" role="region" aria-label="Profile builder controls">
+        <h2>Profile Builder</h2>
+        <p>Complete each step to build your profile. Skipped prompts won't appear in your profile.</p>
+
+        <div class="progress-section">
+          <div class="progress-label">
+            <span>Completion</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="prog-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBar">
+            <div class="prog-bar-fill" id="progFill"></div>
+          </div>
+          <p style="font-size:0.8rem;color:var(--neutral-700);margin-top:0.4rem;" id="stepCounter">0 of 9 prompts completed</p>
+        </div>
+
+        <div class="step-btns" role="group" aria-label="Profile steps">
+          <button class="step-btn" id="btn1" onclick="startStep(1)">Step 1: Basic Details</button>
+          <button class="step-btn" id="btn2" onclick="startStep(2)">Step 2: Interests</button>
+          <button class="step-btn" id="btn3" onclick="startStep(3)">Step 3: Actions</button>
+        </div>
+
+        <button class="btn btn-outline" onclick="resetProfile()" style="width:100%;margin-top:0.5rem;">↺ Reset Profile</button>
+      </div>
+
+      <!-- Right: profile output -->
+      
+      <div class="profile-output" role="region" aria-live="polite" aria-label="Your profile">
+        <h2>Your Profile</h2>
+
+        <div id="emptyMsg" class="empty-msg">
+          <span class="icon">🌱</span>
+          <p>Click a step button on the left to start building your climate profile.</p>
+        </div>
+
+        
+        <div id="section1" class="profile-section" role="region" aria-label="Basic details section">
+          <h3>Basic Details</h3>
+          <div id="section1Content"></div>
+        </div>
+
+        <div id="section2" class="profile-section" role="region" aria-label="Climate interests section">
+          <h3>Climate Interests</h3>
+          <div id="section2Content"></div>
+        </div>
+
+        <div id="section3" class="profile-section" role="region" aria-label="Actions and commitments section">
+          <h3>Actions &amp; Commitments</h3>
+          <div id="section3Content"></div>
+        </div>
+
+        <div id="confirmSection" class="profile-section" role="region" aria-label="Profile complete confirmation">
+          <h3>✅ Profile Complete</h3>
+          <p style="font-size:0.9rem;color:var(--primary-dark);font-weight:600;">Congratulations! Your climate profile is fully built. Share it with others to inspire climate action.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h4>CLIMA</h4>
+        <p style="font-size:0.85rem;">Student project – University of Westminster 2026.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Navigate</h4>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h4>This Page</h4>
+        <a href="pageEditor_ST4.html">Page Editor – Student 4</a>
+        <a href="validation_ST4.html">Validation – Student 4</a>
+        <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+      </div>
+      <div class="footer-section">
+        <h4>Student 4</h4>
+        <p style="font-size:0.85rem;">Name: Subina Upreti<br>Student ID: w2148855<br>Role: Profile &amp; Sitemap</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CLIMA – SDG 13 | <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Profile data store ----
+    const profileData = {
+      step1: {}, // Basic Details  (3 prompts)
+      step2: {}, // Interests       (3 prompts)
+      step3: {}  // Actions         (3 prompts)
+    };
+    const stepDone = { 1: false, 2: false, 3: false };
+    const TOTAL_PROMPTS = 9;
+    let completedPrompts = 0;
+
+    // ---- Step definitions ----
+    const steps = {
+      1: [
+        { key: 'name',     label: 'Your Name',     prompt: 'Step 1 of 3: What is your name?' },
+        { key: 'username', label: 'Username',       prompt: 'Step 1 of 3: Choose a username for your climate profile:' },
+        { key: 'location', label: 'Location',       prompt: 'Step 1 of 3: Where are you based? (city or area)' }
+      ],
+      2: [
+        { key: 'topic',    label: 'Favourite SDG topic',  prompt: 'Step 2 of 3: Which climate topic interests you most? (e.g. energy, food, transport, policy)' },
+        { key: 'content',  label: 'Preferred content',    prompt: 'Step 2 of 3: How do you prefer to learn about climate change? (e.g. articles, videos, podcasts)' },
+        { key: 'weekly',   label: 'Weekly commitment',    prompt: 'Step 2 of 3: How much time can you commit to climate action per week? (e.g. 30 mins, 2 hours)' }
+      ],
+      3: [
+        { key: 'action1',  label: 'Top personal action', prompt: 'Step 3 of 3: What is the biggest climate action you already take?' },
+        { key: 'goal',     label: 'Climate goal',        prompt: 'Step 3 of 3: What is one climate goal you want to achieve this year?' },
+        { key: 'inspire',  label: 'Inspired by',         prompt: 'Step 3 of 3: Who or what inspires your climate commitment?' }
+      ]
+    };
+
+    // ---- Run a step ----
+    function startStep(stepNum) {
+      const stepKey = `step${stepNum}`;
+      const prompts = steps[stepNum];
+      const btn     = document.getElementById(`btn${stepNum}`);
+
+      btn.classList.add('active');
+      let answered = 0;
+
+      prompts.forEach(p => {
+        const answer = prompt(p.prompt + '\n\n(Leave blank and click OK to skip this question.)');
+        if (answer !== null && answer.trim() !== '') {
+          profileData[stepKey][p.key] = answer.trim();
+          answered++;
+        }
+      });
+
+      completedPrompts = countCompleted();
+      stepDone[stepNum] = answered > 0;
+      renderSection(stepNum);
+      updateProgress();
+
+      btn.classList.remove('active');
+      if (stepDone[stepNum]) btn.classList.add('done');
+    }
+
+    // Count total answered prompts
+    function countCompleted() {
+      let total = 0;
+      [1,2,3].forEach(n => {
+        total += Object.keys(profileData[`step${n}`]).length;
+      });
+      return total;
+    }
+
+    // ---- Render a section to the profile ----
+    function renderSection(stepNum) {
+      const stepKey = `step${stepNum}`;
+      const section = document.getElementById(`section${stepNum}`);
+      const content = document.getElementById(`section${stepNum}Content`);
+      const data    = profileData[stepKey];
+      const prompts = steps[stepNum];
+
+      const keys = Object.keys(data);
+      if (keys.length === 0) return; // nothing answered
+
+      let html = '';
+      prompts.forEach(p => {
+        if (data[p.key]) {
+          html += `<div class="profile-item">
+                     <span class="label">${p.label}:</span>
+                     <span class="value">${escapeHTML(data[p.key])}</span>
+                   </div>`;
+        }
+      });
+      content.innerHTML = html;
+      section.classList.add('visible');
+
+      // Hide empty placeholder
+      document.getElementById('emptyMsg').style.display = 'none';
+    }
+
+    // ---- Update progress bar ----
+    function updateProgress() {
+      const pct = Math.round((completedPrompts / TOTAL_PROMPTS) * 100);
+      document.getElementById('progFill').style.width = pct + '%';
+      document.getElementById('progressPct').textContent = pct + '%';
+      document.getElementById('progressBar').setAttribute('aria-valuenow', pct);
+      document.getElementById('stepCounter').textContent = `${completedPrompts} of ${TOTAL_PROMPTS} prompts completed`;
+
+      // Show confirmation if all done
+      if (pct === 100) {
+        document.getElementById('confirmSection').classList.add('visible');
+      } else {
+        document.getElementById('confirmSection').classList.remove('visible');
+      }
+    }
+
+    // ---- Reset ----
+    function resetProfile() {
+      [1,2,3].forEach(n => {
+        profileData[`step${n}`] = {};
+        document.getElementById(`section${n}`).classList.remove('visible');
+        document.getElementById(`section${n}Content`).innerHTML = '';
+        const btn = document.getElementById(`btn${n}`);
+        btn.classList.remove('done','active');
+        stepDone[n] = false;
+      });
+      completedPrompts = 0;
+      updateProgress();
+      document.getElementById('emptyMsg').style.display = 'block';
+      document.getElementById('confirmSection').classList.remove('visible');
+    }
+
+    // XSS safety
+    function escapeHTML(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

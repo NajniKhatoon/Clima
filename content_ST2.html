@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Sustainable Transport in Nepal – SDG 13</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === CONTENT PAGE ST2 — Sustainable Transport in Nepal === */
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 3rem 5%;
+    }
+    @media (max-width: 700px) {
+      .content-layout { grid-template-columns: 1fr; padding: 2rem 5%; }
+      .side-nav { display: none; }
+    }
+
+    .side-nav {
+      position: sticky;
+      top: 90px;
+      background: var(--white);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .side-nav h2 {
+      font-size: 0.75rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--neutral-700); margin-bottom: 0.8rem;
+    }
+    .side-nav ul { list-style: none; padding: 0; margin: 0; }
+    .side-nav ul li { margin-bottom: 0.5rem; }
+    .side-nav ul li a {
+      font-size: 0.88rem; color: var(--neutral-900);
+      text-decoration: none; font-weight: 500;
+      display: block; padding: 0.3rem 0.4rem;
+      border-radius: var(--radius);
+      transition: background 0.2s, color 0.2s;
+    }
+    .side-nav ul li a:hover { background: var(--primary); color: var(--white); }
+
+    .content-article section { margin-bottom: 2.5rem; scroll-margin-top: 90px; }
+    .content-article h2 {
+      font-size: 1.35rem; color: var(--primary-dark);
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 0.4rem; margin-bottom: 1rem;
+    }
+    .content-article h3 { font-size: 1.05rem; color: var(--primary); margin: 1rem 0 0.4rem; }
+    .content-article p  { color: var(--neutral-700); line-height: 1.75; margin-bottom: 0.8rem; font-size: 0.97rem; }
+    .content-article ul,
+    .content-article ol { padding-left: 1.5rem; color: var(--neutral-700); font-size: 0.97rem; line-height: 1.8; margin-bottom: 1rem; }
+
+    .content-img {
+      width: 100%; max-height: 340px; object-fit: cover;
+      border-radius: var(--radius-lg); margin: 1rem 0 1.4rem;
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-md);
+    }
+    .img-caption { font-size: 0.8rem; color: var(--neutral-700); text-align: center; margin-top: -0.8rem; margin-bottom: 1.2rem; font-style: italic; }
+
+    .callout {
+      background: #e8f5e9; border-left: 5px solid var(--primary);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: 1rem 1.3rem; margin: 1.2rem 0; font-size: 0.95rem; color: var(--neutral-900);
+    }
+    .callout strong { color: var(--primary); display: block; margin-bottom: 0.3rem; }
+
+    .stat-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0; }
+    .stat-card {
+      flex: 1; min-width: 130px;
+      background: var(--primary-dark); color: var(--white);
+      border-radius: var(--radius-lg); padding: 1rem; text-align: center;
+    }
+    .stat-card .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+    .stat-card .stat-label { font-size: 0.78rem; color: #c8e6d0; margin-top: 0.3rem; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #0d3320 0%, var(--primary) 100%);
+      color: var(--white); padding: 3rem 5% 2.5rem; text-align: center;
+    }
+    .page-hero h1 { color: var(--white); margin-bottom: 0.5rem; }
+    .page-hero p  { color: var(--neutral-200); margin: 0; font-size: 1.05rem; }
+
+    .go-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--primary); color: var(--white);
+      text-decoration: none; font-weight: 700; font-size: 0.85rem;
+      padding: 0.7rem 1rem; border-radius: 50px;
+      box-shadow: var(--shadow-md);
+      transition: background 0.2s, transform 0.2s; z-index: 999;
+    }
+    .go-top:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<div id="page-top"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="home.html" class="site-logo" aria-label="CLIMA Home">
+      <div class="logo-icon" aria-hidden="true">🌍</div>
+      <div>
+        <span class="logo-text">CLIMA</span>
+        <span class="logo-sub">SDG 13 · Climate Action</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav aria-label="Main navigation">
+      <ul id="navMenu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Impact Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>🚌 Sustainable Transport in Nepal</h1>
+  <p>Student 2 · SDG 13 Climate Action · University of Westminster 2025/26</p>
+</div>
+
+<main>
+  <div class="content-layout">
+
+    <aside>
+      <nav class="side-nav" aria-label="Page sections">
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#air-pollution">Air Pollution Crisis</a></li>
+          <li><a href="#safa-tempo">Safa Tempo</a></li>
+          <li><a href="#cycling">Cycling &amp; Walking</a></li>
+          <li><a href="#student-actions">Student Actions</a></li>
+          <li><a href="#cities">Cities Leading Change</a></li>
+          <li><a href="#take-action">Take Action</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="content-article">
+
+      <section id="overview">
+        <h2>Nepal's Transport &amp; Climate Challenge</h2>
+        <p>
+          Kathmandu Valley is one of South Asia's most polluted urban areas. Sandwiched between
+          mountains that trap emissions, the valley's air quality regularly exceeds World Health
+          Organization safe limits by ten times or more. The primary culprit is vehicular
+          emissions — from an aging, diesel-heavy fleet of buses, trucks, and private cars that
+          has grown dramatically as Nepal's economy has expanded.
+        </p>
+        <p>
+          Transport accounts for a significant share of Nepal's total greenhouse gas emissions,
+          and the sector's emissions are rising rapidly. Transitioning to sustainable, low-carbon
+          transport is therefore not just a climate imperative — it is a public health emergency
+          for Nepal's urban residents.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-num">10×</div>
+            <div class="stat-label">WHO safe limit exceeded in Kathmandu air quality</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">1.5M+</div>
+            <div class="stat-label">registered vehicles in Bagmati Province</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">35%</div>
+            <div class="stat-label">of Nepal's CO₂ from transport sector</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="air-pollution">
+        <h2>The Air Pollution Crisis in Kathmandu</h2>
+
+        <img class="content-img"
+             src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=80"
+             alt="Bus on a road representing transport emissions and pollution in Nepal" />
+        <p class="img-caption">Nepal's aging diesel vehicle fleet is a major source of urban air pollution.</p>
+
+        <p>
+          Kathmandu's topography makes it a natural pollution trap. Surrounded by hills on three
+          sides, the valley experiences frequent temperature inversions — atmospheric conditions
+          that trap cold, polluted air at ground level beneath warmer air above. This means that
+          emissions from vehicles, brick kilns, and construction sites accumulate with nowhere to
+          go.
+        </p>
+        <p>
+          The health consequences are severe. Respiratory disease is among the leading causes of
+          hospital admissions in Kathmandu. Children are disproportionately affected, with
+          stunted lung development in areas near busy roads. The economic cost of health impacts
+          from Kathmandu's air pollution runs to billions of rupees annually.
+        </p>
+
+        <div class="callout">
+          <strong>Climate Connection</strong>
+          The same fossil fuels driving Nepal's air pollution crisis are also driving the climate
+          change that is melting Himalayan glaciers, disrupting monsoons, and threatening the
+          water security of millions of Nepalis. Solving transport emissions tackles both
+          problems simultaneously.
+        </div>
+      </section>
+
+      <section id="safa-tempo">
+        <h2>Safa Tempo: Nepal's Electric Transport Pioneer</h2>
+        <p>
+          Kathmandu has a surprising and inspiring transport success story: the Safa Tempo.
+          These three-wheeled electric vehicles — the name means "clean vehicle" in Nepali —
+          have been operating in Kathmandu since the early 1990s. At their peak, over 600 Safa
+          Tempos served routes across the valley, replacing polluting diesel-powered three-wheelers.
+        </p>
+
+        <h3>Rise, Decline, and Revival</h3>
+        <p>
+          Sadly, the number of Safa Tempos declined significantly through the 2000s and 2010s
+          as policy support wavered and cheap diesel vehicles flooded the market. However, a
+          renewed government push for electric vehicles — driven partly by Nepal's desire to
+          use its own hydropower rather than import fossil fuels — is reviving interest in
+          electric public transport.
+        </p>
+
+        <h3>Electric Buses: The Next Step</h3>
+        <p>
+          The government of Nepal has announced ambitious plans to electrify public bus routes
+          in Kathmandu and other major cities. Chinese-manufactured electric buses are already
+          operating on several routes, and Nepal's own hydropower gives the country an
+          extraordinary advantage: electric vehicles here run on genuinely clean, renewable
+          electricity — unlike in countries where the grid is still coal-dominated.
+        </p>
+      </section>
+
+      <section id="cycling">
+        <h2>Cycling &amp; Walking: Simple, Powerful Solutions</h2>
+        <p>
+          For short urban journeys — which make up the majority of trips in most cities — walking
+          and cycling produce zero emissions and require no fuel imports. Yet Kathmandu's streets
+          are notoriously hostile to cyclists and pedestrians: narrow, potholed roads shared with
+          aggressive traffic, and almost no protected cycling infrastructure.
+        </p>
+
+        <h3>The Bagmati Cycling Corridor</h3>
+        <p>
+          The Bagmati River Civilisation Project has created a riverside pathway that serves as
+          one of Kathmandu's few genuinely safe cycling and walking routes. On weekends, thousands
+          of residents use this green corridor for exercise, commuting, and leisure — demonstrating
+          the latent demand for safe active travel infrastructure.
+        </p>
+
+        <h3>Cycle Cities Nepal</h3>
+        <p>
+          Civil society organisations like Cycle City Network Nepal are advocating for protected
+          cycle lanes, improved pedestrian crossings, and car-free zones in Kathmandu's historic
+          areas. Thamel — the tourist district — has already experimented with pedestrianisation
+          with encouraging results for air quality and street life.
+        </p>
+      </section>
+
+      <section id="student-actions">
+        <h2>What Students Can Do</h2>
+
+        <div class="callout">
+          <strong>You don't need a car to have an impact — or avoid one to make a difference.</strong>
+          Your transport choices, voice, and activism all count.
+        </div>
+
+        <ol>
+          <li><strong>Choose the Safa Tempo or electric bus.</strong> Every ride you take on clean public transport instead of a private vehicle or diesel taxi directly reduces Kathmandu's pollution.</li>
+          <li><strong>Walk or cycle for short journeys.</strong> Journeys under 3 km by foot or bicycle produce zero emissions and often take less time than sitting in Kathmandu's traffic.</li>
+          <li><strong>Advocate on campus.</strong> Lobby your university for secure bicycle parking, a cycle loan scheme, and shuttle buses to rail or bus stations.</li>
+          <li><strong>Join transport advocacy groups.</strong> Cycle City Network Nepal and Clean Air Network Nepal welcome student volunteers and campaigners.</li>
+          <li><strong>Share and normalise sustainable transport.</strong> Post about your Safa Tempo rides, your cycling routes, or your walk to campus. Normalising clean transport choices shifts culture.</li>
+        </ol>
+      </section>
+
+      <section id="cities">
+        <h2>Cities &amp; Countries Leading the Change</h2>
+
+        <h3>Kathmandu's Electric Future</h3>
+        <p>
+          Nepal's government has set a target of 25% electric vehicles in its national fleet by
+          2025 and 90% by 2030. With the country's hydropower resources, this is an achievable
+          and genuinely clean target — unlike EV transitions in countries still dependent on
+          fossil-fuel electricity generation.
+        </p>
+
+        <h3>Pokhara: A Greener City Model</h3>
+        <p>
+          Pokhara, Nepal's second-largest city and tourism hub, has been more successful than
+          Kathmandu in maintaining air quality. Lower vehicle density, lakeside cycling paths,
+          and strict controls on heavy vehicles near Phewa Lake make it a model for what
+          sustainable urban transport in Nepal can look like.
+        </p>
+
+        <h3>Global Lessons for Nepal</h3>
+        <p>
+          Bogotá's Ciclovía — weekly car-free Sunday streets — has been adopted by dozens of
+          cities and shows how quickly urban culture around transport can shift when given space.
+          Kathmandu's Ason and New Road areas could trial similar pedestrian days. Amsterdam's
+          cycling infrastructure — built over decades through sustained investment and political
+          commitment — demonstrates what Nepal's cities could achieve with the same resolve.
+        </p>
+      </section>
+
+      <section id="take-action">
+        <h2>Take Action Now</h2>
+        <p>
+          Nepal's transport transition is already underway — but it needs more voices, more
+          advocates, and more young people choosing clean options. Use our
+          <a href="ais.html">Impact Simulator</a> to calculate your personal transport footprint,
+          or explore our <a href="gallery.html">Gallery</a> for inspiration from sustainable
+          cities around the world.
+        </p>
+        <div class="callout">
+          <strong>Remember:</strong> Every Safa Tempo ride, every cycle journey, every walk to
+          class is a vote for a cleaner, healthier Kathmandu — and a cooler planet. Start today.
+        </div>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<a href="#page-top" class="go-top" aria-label="Go back to top of page">↑ Top</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h3>CLIMA</h3>
+      <p style="font-size:0.85rem;">A student project supporting UN SDG 13 – Climate Action. University of Westminster, 2026.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Navigate</h3>
+      <a href="home.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="ais.html">Impact Simulator</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="team.html">Team</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+    <div class="footer-section">
+      <h3>This Page</h3>
+      <a href="pageEditor_ST2.html">Page Editor – Student 2</a>
+      <a href="validation_ST2.html">Validation – Student 2</a>
+      <a href="#" aria-label="Accessibility statement">Accessibility Statement</a>
+    </div>
+    <div class="footer-section">
+      <h3>Student 2</h3>
+      <p style="font-size:0.85rem;">Name: Ajit Pandey<br>Student ID: W2148848<br>Role: Splash &amp; AIS</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 CLIMA – SDG 13 Climate Action | University of Westminster |
+      <a href="https://www.un.org/en/climatechange" target="_blank" rel="noopener">Accessibility</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu   = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+
+</body>
+</html>

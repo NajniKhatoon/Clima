@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIMA | Page Editor – Student 4</title>
+  <style>
+    :root {
+      --primary:#1a6b3c;
+      --primary-dark:#0d4025;
+      --accent:#f4a020;
+      --white:#fff;
+      --neutral-100:#f5f5f0;
+      --neutral-200:#e8e8e0;
+      --neutral-700:#3a3a30;
+      --neutral-900:#1a1a14;
+      --radius:8px;
+      --shadow-sm:0 2px 8px rgba(0,0,0,.10);
+    }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Georgia',serif; background:var(--neutral-100); color:var(--neutral-900); line-height:1.75; font-size:16px; }
+    a { color:var(--primary); text-decoration:underline; }
+    a:hover { color:var(--accent); }
+    header { background:var(--primary-dark); color:var(--white); padding:1.5rem 5%; }
+    header h1 { font-size:1.8rem; letter-spacing:0.04em; }
+    header p { font-size:0.9rem; opacity:0.75; margin-top:0.3rem; }
+    .container { max-width:900px; margin:0 auto; padding:3rem 5%; }
+    /* Contents */
+    .contents-box { background:var(--white); border:1px solid var(--neutral-200); border-radius:var(--radius); padding:1.5rem 2rem; margin-bottom:3rem; box-shadow:var(--shadow-sm); }
+    .contents-box h2 { color:var(--primary); margin-bottom:1rem; font-size:1.1rem; }
+    .contents-box ol { padding-left:1.3rem; }
+    .contents-box li { margin-bottom:0.4rem; font-size:0.92rem; }
+    /* Sections */
+    .pe-section { margin-bottom:3.5rem; padding-bottom:2rem; border-bottom:2px solid var(--neutral-200); }
+    .pe-section h2 { color:var(--primary-dark); font-size:1.6rem; margin-bottom:0.8rem; }
+    .pe-section h3 { color:var(--primary); font-size:1.15rem; margin:1.5rem 0 0.5rem; }
+    .pe-section p { margin-bottom:1rem; }
+    .pe-section ul { padding-left:1.5rem; margin-bottom:1rem; }
+    .pe-section li { margin-bottom:0.4rem; }
+    /* Code snippets */
+    code { background:#f0faf4; border:1px solid #c8e6c9; border-radius:4px; padding:0.1rem 0.4rem; font-family:'Courier New',monospace; font-size:0.88rem; color:var(--primary-dark); }
+    /* Meeting table */
+    table { width:100%; border-collapse:collapse; font-size:0.88rem; margin:1rem 0; }
+    th { background:var(--primary); color:var(--white); padding:0.6rem 0.8rem; text-align:left; }
+    td { padding:0.6rem 0.8rem; border-bottom:1px solid var(--neutral-200); }
+    tr:nth-child(even) td { background:var(--neutral-100); }
+    /* Go to top */
+    .go-top { position:fixed; bottom:2rem; right:2rem; background:var(--primary); color:var(--white); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,.2); }
+    .go-top:hover { background:var(--accent); color:var(--primary-dark); }
+    footer { background:var(--primary-dark); color:#e8e8e0; padding:1.5rem 5%; font-size:0.85rem; margin-top:3rem; }
+    footer a { color:var(--accent); }
+    .link-btn { display:inline-block; margin-top:0.5rem; padding:0.4rem 1rem; background:var(--primary); color:var(--white); border-radius:var(--radius); text-decoration:none; font-size:0.85rem; margin-right:0.5rem; }
+    .link-btn:hover { background:var(--accent); color:var(--primary-dark); }
+    .badge { display:inline-block; background:var(--accent); color:var(--primary-dark); border-radius:4px; padding:0.15rem 0.6rem; font-size:0.8rem; font-family:'Courier New',monospace; font-weight:700; margin-left:0.4rem; vertical-align:middle; }
+  </style>
+</head>
+<body>
+
+<header id="top">
+  <h1>Page Editor – Student 4</h1>
+  <p>Role: User Profile &amp; Sitemap | CLIMA – SDG 13 Climate Action | University of Westminster 2025/26</p>
+</header>
+
+<div class="container">
+
+  <!-- CONTENTS -->
+  <div class="contents-box" role="navigation" aria-label="Page contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#overview">Student Overview</a></li>
+      <li><a href="#pages">Pages Implemented</a></li>
+      <li><a href="#technical">Technical Descriptions</a></li>
+      <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+      <li><a href="#accessibility">Accessibility Considerations</a></li>
+      <li><a href="#janet">JANET Compliance</a></li>
+      <li><a href="#meetings">Group Meetings Log</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. OVERVIEW -->
+  <section class="pe-section" id="overview" aria-labelledby="ov-h">
+    <h2 id="ov-h">1. Student Overview</h2>
+    <p><strong>Name:</strong> Subina Upreti</p>
+    <p><strong>Student ID:</strong> w2148855</p>
+    <p><strong>Role:</strong> User Profile &amp; Sitemap</p>
+    <p><strong>Completed Pages / Tasks:</strong> User Profile (<code>profile.html</code>), Sitemap (<code>sitemap.html</code>), Content Page – Climate Policy (<code>content_ST4.html</code>), Page Editor (<code>pageEditor_ST4.html</code>), Validation (<code>validation_ST4.html</code>)</p>
+  </section>
+
+  <!-- 2. PAGES -->
+  <section class="pe-section" id="pages" aria-labelledby="pg-h">
+    <h2 id="pg-h">2. Pages Implemented</h2>
+    <p>The following pages were implemented as part of my individual contribution to the CLIMA group website:</p>
+    <ul>
+      <li><strong>profile.html</strong> – User Profile page featuring a personalised climate pledge card, editable display name, pledge tracker, and avatar section.</li>
+      <li><strong>sitemap.html</strong> – Interactive SVG sitemap visualising the full website hierarchy, with hover/focus effects and clickable navigation nodes.</li>
+      <li><strong>content_ST4.html</strong> – Content page covering Climate Policy, including key agreements, data visualisations, and calls to action aligned with SDG 13.</li>
+      <li><strong>pageEditor_ST4.html</strong> – This page; documents the technical decisions, accessibility work, and group contributions for Student 4.</li>
+      <li><strong>validation_ST4.html</strong> – HTML and CSS validation evidence for the pages above.</li>
+    </ul>
+    <p>Links to live pages:</p>
+    <a class="link-btn" href="profile.html" target="_blank" rel="noopener">User Profile ↗</a>
+    <a class="link-btn" href="sitemap.html" target="_blank" rel="noopener">Sitemap ↗</a>
+    <a class="link-btn" href="content_ST4.html" target="_blank" rel="noopener">Content Page ↗</a>
+    <a class="link-btn" href="validation_ST4.html" target="_blank" rel="noopener">Validation Page ↗</a>
+  </section>
+
+  <!-- 3. TECHNICAL -->
+  <section class="pe-section" id="technical" aria-labelledby="tech-h">
+    <h2 id="tech-h">3. Technical Description of Implemented Pages</h2>
+
+    <h3>HTML Structure</h3>
+    <p>All pages use semantic HTML5 elements to clearly communicate structure to both browsers and assistive technologies. Key elements used include:</p>
+    <ul>
+      <li><code>&lt;header&gt;</code> – Contains the site logo and navigation bar, shared across all pages via a consistent template.</li>
+      <li><code>&lt;nav&gt;</code> – Wraps the navigation menu with an <code>aria-label="Main navigation"</code> attribute for screen reader clarity.</li>
+      <li><code>&lt;main&gt;</code> – Holds the unique page content, ensuring a clear landmark for keyboard and screen reader users.</li>
+      <li><code>&lt;section&gt;</code> – Used on the Profile and Content pages to group thematically related content, each with a descriptive <code>aria-labelledby</code> heading.</li>
+      <li><code>&lt;svg&gt;</code> – The Sitemap is built entirely in inline SVG with <code>&lt;title&gt;</code>, <code>&lt;desc&gt;</code>, and ARIA attributes so it is accessible and scalable on all screen sizes.</li>
+      <li><code>&lt;footer&gt;</code> – Contains links to the Page Editor, Validation page, and student details, consistent across all pages.</li>
+    </ul>
+
+    <h3>CSS Techniques</h3>
+    <p>The shared <code>style.css</code> defines the global design system — colour palette, typography, navigation, cards, and buttons. CSS Custom Properties (variables) ensure consistency. Page-specific styles are written in an embedded <code>&lt;style&gt;</code> block within each page's <code>&lt;head&gt;</code>. Key techniques used in my pages include:</p>
+    <ul>
+      <li><strong>CSS Grid</strong> – Used in <code>profile.html</code> for the pledge card and stats layout (<code>grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))</code>), providing a responsive multi-column layout without media queries.</li>
+      <li><strong>CSS Flexbox</strong> – Applied in the header, navigation bar, and profile avatar row for alignment and spacing.</li>
+      <li><strong>CSS Transitions</strong> – Applied to SVG node hover effects on the sitemap (<code>transition: fill 0.2s ease</code>) and card hover lift effects on the profile page, providing smooth visual feedback.</li>
+      <li><strong>SVG Styling</strong> – The sitemap nodes use inline <code>fill</code>, <code>stroke</code>, and <code>stroke-dasharray</code> attributes alongside CSS class-based hover states to distinguish page types visually.</li>
+      <li><strong>CSS Custom Properties</strong> – All colour, radius, and shadow values are referenced via variables (e.g. <code>var(--primary)</code>) ensuring brand consistency and easy future updates.</li>
+    </ul>
+
+    <h3>JavaScript</h3>
+    <p>JavaScript is used selectively to enhance interactivity without removing functionality for non-JS users. Key uses include:</p>
+    <ul>
+      <li><strong>Mobile navigation toggle</strong> – The hamburger button uses an event listener to toggle the <code>open</code> class on the nav menu, with <code>aria-expanded</code> updated dynamically so screen readers announce the state correctly.</li>
+      <li><strong>Sitemap node interaction</strong> – SVG <code>&lt;a&gt;</code> elements are fully keyboard-navigable using <code>tabindex="0"</code>. No additional JavaScript was required as native SVG linking handles click navigation.</li>
+      <li><strong>Profile pledge tracker</strong> – A lightweight script on <code>profile.html</code> reads checkbox states and updates a visible pledge count in real time, giving users immediate feedback on their climate commitments.</li>
+    </ul>
+
+    <h3>Design and Implementation Rationale</h3>
+    <p>The deep green primary palette (<code>#1a6b3c</code>, <code>#0d4025</code>) was chosen to directly evoke the environmental theme of SDG 13 – Climate Action, while the amber accent (<code>#f4a020</code>) provides urgency and energy. The sitemap uses a hierarchical SVG layout rather than a static image so that it is scalable, accessible, and directly navigable. The profile page uses a card-based layout to make personal climate pledges feel tangible and interactive, encouraging genuine engagement with the site's message.</p>
+  </section>
+
+  <!-- 4. CHALLENGES -->
+  <section class="pe-section" id="challenges" aria-labelledby="ch-h">
+    <h2 id="ch-h">4. Challenges &amp; Lessons Learned</h2>
+
+    <h3>Challenge 1 – SVG Sitemap Accessibility</h3>
+    <p>Initially the SVG sitemap was built as a static image, which meant screen reader users received no useful information about the site structure. I resolved this by rebuilding it as inline SVG with semantic <code>&lt;a&gt;</code> wrapper elements, <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> tags, and <code>tabindex="0"</code> on each node. This taught me that SVG can be made fully accessible with the right combination of ARIA and native HTML linking patterns.</p>
+
+    <h3>Challenge 2 – Legend Overlapping Diagram Nodes</h3>
+    <p>During testing I noticed the sitemap legend text ("Individual pages") was overlapping the dashed "Page Editors" node because both were positioned in the lower portion of the SVG canvas. I resolved this by increasing the SVG <code>viewBox</code> height from <code>600</code> to <code>650</code> and moving all legend elements to <code>y="605"</code>, giving them clear separation from the diagram content above. This reinforced the importance of testing SVG layouts at multiple viewport widths.</p>
+
+    <h3>Challenge 3 – Responsive Navigation on Small Screens</h3>
+    <p>The full navigation bar collapsed poorly on mobile viewports below 480px, with links wrapping awkwardly. I resolved this by implementing a JavaScript-driven hamburger toggle that hides the nav menu by default on small screens and shows it as a full-width dropdown when activated, updating <code>aria-expanded</code> to maintain accessibility. This showed me the value of building mobile-first and testing on real device widths early in the process.</p>
+  </section>
+
+  <!-- 5. ACCESSIBILITY -->
+  <section class="pe-section" id="accessibility" aria-labelledby="ac-h">
+    <h2 id="ac-h">5. Accessibility Considerations</h2>
+    <p>Accessibility was considered throughout the design and development of my pages. Key techniques applied include:</p>
+    <ul>
+      <li><strong>Alt text:</strong> All images on the profile and content pages include descriptive <code>alt</code> attributes that communicate the content and purpose of each image to screen reader users.</li>
+      <li><strong>Semantic HTML:</strong> Using appropriate elements (<code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>) creates a meaningful document outline for assistive technologies.</li>
+      <li><strong>ARIA attributes:</strong> <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-expanded</code>, <code>aria-current="page"</code>, and <code>role</code> attributes were added throughout to supplement semantic HTML where needed.</li>
+      <li><strong>Keyboard navigation:</strong> All interactive SVG nodes on the sitemap include <code>tabindex="0"</code> and <code>role="link"</code> so they are reachable and operable via keyboard alone.</li>
+      <li><strong>Colour contrast:</strong> Text and background combinations were chosen to meet WCAG AA contrast requirements (minimum 4.5:1 for normal text). For example, white text on <code>#1a6b3c</code> achieves a ratio of approximately 7:1.</li>
+      <li><strong>Focus styles:</strong> Visible focus outlines (<code>outline: 3px solid #f4a020</code>) are preserved on all interactive elements so keyboard users can track their position on the page.</li>
+      <li><strong>SVG accessibility:</strong> The sitemap SVG includes a <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> element and is marked with <code>role="img"</code> and <code>aria-label</code> so screen readers announce it meaningfully.</li>
+    </ul>
+  </section>
+
+  <!-- 6. JANET -->
+  <section class="pe-section" id="janet" aria-labelledby="jan-h">
+    <h2 id="jan-h">6. Compliance with JANET Regulations</h2>
+    <p>All pages published on the University of Westminster web server comply with JANET (Joint Academic Network) regulations governing web page publication. The following practices demonstrate compliance:</p>
+    <ul>
+      <li><strong>Appropriate content:</strong> All content is relevant to the academic project, appropriate for a university audience, and does not contain offensive, illegal, or discriminatory material.</li>
+      <li><strong>Responsible use of resources:</strong> External images are sourced from royalty-free providers (Unsplash) and are credited in the references section. No copyrighted material is reproduced without permission.</li>
+      <li><strong>No malicious code:</strong> All JavaScript on the site serves legitimate user interface purposes (navigation toggle, pledge counter) and does not attempt to access user data, track users, or perform any unauthorised actions.</li>
+      <li><strong>Professional conduct:</strong> The website represents the University of Westminster appropriately and aligns with its Being Westminster strategy and commitment to the United Nations Sustainable Development Goals.</li>
+      <li><strong>Data handling:</strong> The feedback form does not send data to any external server. No personal data is collected, stored, or transmitted by any page on this site.</li>
+    </ul>
+  </section>
+
+  <!-- 7. MEETINGS LOG -->
+  <section class="pe-section" id="meetings" aria-labelledby="mt-h">
+    <h2 id="mt-h">7. Group Meetings &amp; Contribution Log</h2>
+    <p>Six group meetings were held over the course of the project. Each row documents the meeting objective and my individual contribution.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date &amp; Time</th>
+          <th>Format</th>
+          <th>Objective</th>
+          <th>Attended</th>
+          <th>My Individual Contribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Week 1 – Mon, 10:00</td>
+          <td>Face-to-face</td>
+          <td>Choose SDG topic and assign page roles</td>
+          <td>Yes</td>
+          <td>Proposed SDG 13 as the project theme; volunteered for the Sitemap and Profile pages; took notes on agreed roles.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Week 2 – Wed, 14:00</td>
+          <td>Online (Teams)</td>
+          <td>Agree visual design, colour palette, and shared CSS structure</td>
+          <td>Yes</td>
+          <td>Suggested the deep green and amber colour palette to reflect the environmental theme; shared initial CSS variable definitions for the team to adopt.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Week 3 – Mon, 11:00</td>
+          <td>Face-to-face</td>
+          <td>Review shared HTML template and global CSS</td>
+          <td>Yes</td>
+          <td>Tested the shared header and footer template across all browsers; flagged a mobile nav overflow bug and proposed the hamburger toggle fix.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Week 4 – Fri, 13:00</td>
+          <td>Online (Teams)</td>
+          <td>Progress review – first page drafts</td>
+          <td>Yes</td>
+          <td>Presented first draft of the SVG sitemap; received feedback on node spacing and implemented a taller viewBox to remove legend overlap.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Week 5 – Mon, 10:00</td>
+          <td>Face-to-face</td>
+          <td>Integration and cross-browser testing</td>
+          <td>Yes</td>
+          <td>Linked all pages together and tested navigation flow; fixed a broken href on the profile page and ensured all aria-current attributes were set correctly.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Week 6 – Thu, 15:00</td>
+          <td>Online (Teams)</td>
+          <td>Final review, validation checks, and submission preparation</td>
+          <td>Yes</td>
+          <td>Ran W3C HTML and CSS validation on all four of my pages; corrected two minor attribute errors; completed the Page Editor and Validation pages ready for submission.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 8. REFERENCES -->
+  <section class="pe-section" id="references" aria-labelledby="ref-h">
+    <h2 id="ref-h">8. References</h2>
+    <p>All external resources consulted during the development of this project are listed below in APA format.</p>
+    <ul>
+      <li>United Nations. (2015). <em>Sustainable Development Goal 13: Climate Action</em>. <a href="https://sdgs.un.org/goals/goal13" target="_blank" rel="noopener">https://sdgs.un.org/goals/goal13</a></li>
+      <li>W3Schools. (2024). <em>HTML Tutorial</em>. <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">https://www.w3schools.com/html/</a></li>
+      <li>MDN Web Docs. (2024). <em>CSS Reference</em>. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/CSS</a></li>
+      <li>MDN Web Docs. (2024). <em>SVG: Scalable Vector Graphics</em>. <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/SVG</a></li>
+      <li>W3C. (2024). <em>Web Content Accessibility Guidelines (WCAG) 2.1</em>. <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener">https://www.w3.org/TR/WCAG21/</a></li>
+      <li>W3C Markup Validation Service. (2024). <em>Validate by URI</em>. <a href="https://validator.w3.org/" target="_blank" rel="noopener">https://validator.w3.org/</a></li>
+      <li>W3C CSS Validation Service. (2024). <em>CSS Validator</em>. <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">https://jigsaw.w3.org/css-validator/</a></li>
+      <li>Unsplash. (2024). <em>Free high-resolution photos</em>. <a href="https://unsplash.com" target="_blank" rel="noopener">https://unsplash.com</a> [Images used under the Unsplash License]</li>
+      <li>Google Fonts. (2024). <em>Bebas Neue, DM Sans, Space Mono</em>. <a href="https://fonts.google.com" target="_blank" rel="noopener">https://fonts.google.com</a></li>
+      <li>Economou, D. (2026). <em>Web Design and Development lecture notes</em>. University of Westminster.</li>
+    </ul>
+  </section>
+
+</div><!-- end container -->
+
+<a href="#top" class="go-top" aria-label="Back to top">↑</a>
+
+<footer>
+  <p>Student 4 – Subina Upreti (w2148855) | <a href="sitemap.html">Sitemap</a> | <a href="validation_ST4.html">Validation Page</a> | <a href="home.html">Home</a> | &copy; 2026 CLIMA – University of Westminster</p>
+</footer>
+
+</body>
+</html>
